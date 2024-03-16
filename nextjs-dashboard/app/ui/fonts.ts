@@ -9,13 +9,11 @@ export const lusitana = Lusitana({
   });
 
 export const raleway1 = Raleway({
-  weight: ['100','400','900'],
   subsets: ['latin'],
 
 })
 
 export const source_Sans_3 = Raleway({
-  weight: ['100','400','900'],
   subsets: ['latin'],
 
 })

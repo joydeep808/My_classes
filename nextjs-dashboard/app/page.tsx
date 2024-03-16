@@ -2,7 +2,6 @@
 import MyClassLogo from './ui/myclass-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
 
 export default function Page() {
@@ -14,14 +13,14 @@ export default function Page() {
 
         
 
-        <Link href="/login" className="flex w-32 my-auto items-center gap-3 self-start rounded-full bg-indigo-700 px-6 py-3 text-sm font-medium  transition-colors hover:bg-indigo-500 md:text-base">
+        <Link href="/login" className="flex justify-center w-32 my-auto items-center gap-3 self-start rounded-full bg-indigo-700 px-6 py-3 text-sm font-medium  transition-colors hover:bg-indigo-500 md:text-base">
             <span>Log  in</span> 
             {/* <ArrowRightIcon className="w-5 md:w-6" /> */}
         </Link>
 
 
 
-        <Link href="/SignUp" className="flex w-32 my-auto  items-center gap-3 self-start rounded-full bg-indigo-700 px-6 py-3 text-sm font-medium transition-colors hover:bg-indigo-500 md:text-base">
+        <Link href="/sign_up" className="flex justify-center w-32 my-auto  items-center gap-3 self-start rounded-full bg-indigo-700 px-6 py-3 text-sm font-medium transition-colors hover:bg-indigo-500 md:text-base">
             <span>Sign Up</span> 
             {/* <ArrowRightIcon className="w-5 md:w-6" /> */}
         </Link>

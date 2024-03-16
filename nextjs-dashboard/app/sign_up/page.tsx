@@ -1,5 +1,5 @@
 import MyClassLogo from '@/app/ui/myclass-logo';
-import LoginForm from '@/app/ui/login-form';
+import SignUpForm from '@/app/ui/sign-up-form';
  
 export default function LoginPage() {
   return (
@@ -10,7 +10,7 @@ export default function LoginPage() {
             <MyClassLogo />
           
         </div>
-        <LoginForm />
+        <SignUpForm  />
       </div>
     </main>
   );
