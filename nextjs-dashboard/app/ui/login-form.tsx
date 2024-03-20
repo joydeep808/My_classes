@@ -9,41 +9,31 @@ import { authenticate } from '@/app/lib/actions';
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   return (
-    <form action={dispatch} className="space-y-3 ">
-      <div className="flex-1 rounded-lg  px-6 pb-4 pt-8">
-        <h1 className=" mb-3 text-2xl font-medium">
-          Please log in to continue.
-        </h1>
+    <form action={dispatch} className="flex gap-1 w-full max-w-[600px] mx-2 ">
+      <div className="flex  mx-auto flex-col w-full  rounded-lg  px-6 py-4 ">
+        <strong className="  text-4xl font-semibold my-3">
+          Sign in
+        </strong >
         <div className="w-full">
           <div>
-            <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <div className="relative">
+            <label className=" sr-only" htmlFor="email">Email</label>
+            <div className="relative border-0">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-full border-0 bg-gray-200 py-[9px] pl-10 text-sm p-1 placeholder:text-gray-700 placeholder:text-base"
                 id="email"
                 type="email"
                 name="email"
-                placeholder="Enter your email address"
+                placeholder="Email address"
                 required
               />
               <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
           <div className="mt-4">
-            <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-              htmlFor="password"
-            >
-              Password
-            </label>
+            <label  className="sr-only"  htmlFor="password"  >   Password  </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-full border-0 bg-gray-200 py-[9px] pl-10 text-sm p-5 placeholder:text-gray-700 placeholder:text-base"
                 id="password"
                 type="password"
                 name="password"
@@ -55,7 +45,11 @@ export default function LoginForm() {
             </div>
           </div>
         </div>
+        
         <LoginButton />
+        
+        
+        
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -76,8 +70,11 @@ export default function LoginForm() {
 function LoginButton() {
   const { pending } = useFormStatus();
   return (
-    <Button className="mt-4 w-full bg-indigo-600 hover:bg-indigo-400" aria-disabled={pending}>
-      {pending? "processing":"Log in"} <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-    </Button>
+    
+      <Button className="mt-4 w-full rounded-full justify-center bg-indigo-600 hover:bg-indigo-400" aria-disabled={pending}>
+      {pending? "processing":"Log in"} 
+      </Button>
+    
+    
   );
 }
