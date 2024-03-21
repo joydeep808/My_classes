@@ -10,7 +10,7 @@ const source_Sans_3 = Source_Sans_3({
 export default function RootLayout({ children,}: {children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${source_Sans_3.className} antialiased`}>{children}</body>
+      <body className={`${source_Sans_3.className} antialiased font-medium `}>{children}</body>
     </html>
   );
 }
