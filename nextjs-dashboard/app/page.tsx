@@ -35,7 +35,7 @@ export default function Page() {
           </div>
         </div>
         
-        <div className="flex flex-col items-center self-start justify-center p-3 md:h-2/5 md:px-12 md:py-0 md:mb-auto">
+        <div className="flex flex-col items-center self-start justify-center  md:h-2/5 md:px-12 md:py-0 md:mb-auto">
           <strong className='font-extrabold text-2xl'>
             Teachers in Agartala</strong>
             <strong className='font-extrabold text-2xl'>
@@ -51,7 +51,7 @@ export default function Page() {
           <strong className='font-extrabold text-2xl'>
             Our Services</strong>
           <div className='flex gap-4'>
-            <Link href='./' className=' relative flex flex-col w-48 h-40  ' >
+            <Link href='./dashboard' className=' relative flex flex-col w-48 h-40  ' >
             <Image src='/Doubt.svg'  width={100} height={100} className='w-48 h-40 pb-8' alt='Dedicated  doubt solving' ></Image>
             <span className='absolute bottom-1 left-5 font-bold text-sm '>Dedicated  doubt solving</span></Link>
 
