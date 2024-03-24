@@ -9,7 +9,7 @@ const source_Sans_3 = Source_Sans_3({
 export default function MyClassLogo() {
   return (
     <div
-      className=" flex flex-row m-auto items-center leading-none w-4/5 h-12   font-medium"
+      className=" flex flex-row m-auto  items-center justify-center leading-none w-4/5 h-12   font-medium"
     >
       <BookOpenIcon className="w-8 rotate-[15deg] mx-1  md:w-12 " />
       <p className="text-lg  font-semibold">My Classes</p>
