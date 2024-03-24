@@ -11,7 +11,7 @@ export default function SideNav() {
         className="mb-2 flex  items-end justify-start  bg-violet-600  md:h-40"
         href="/dashboard"
       >
-        <div className="w-40 text-white md:w-80">
+        <div className="flex w-40 text-white md:w-80 self-center">
           <MyClassLogo />
         </div>
       </Link>
