@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
-import MyClassLogo from '@/app/ui/myclass-logo';
+import {MyClassLogoWhite} from '@/app/ui/myclass-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import { signOut } from '@/auth';
 
@@ -12,7 +12,7 @@ export default function SideNav() {
         href="/dashboard"
       >
         <div className="flex w-40 text-white md:w-80 self-center">
-          <MyClassLogo />
+          <MyClassLogoWhite />
         </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
