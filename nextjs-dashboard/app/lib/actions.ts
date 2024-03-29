@@ -183,22 +183,71 @@ export async function teacherRegister(
   console.log(validationResult)
   
 
-//  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/teacher/register';
+ const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/teacher/register';
 
-//  try {
-//     const response = await axios.post(apiEndpoint, formattedData);
-//     console.log(response.data);
-//     return 'success';
-//  } catch (error) {
-//     console.error(error);
-//     return 'error';
-//  }
+ try {
+    const response = await axios.post(apiEndpoint, formattedData);
+    console.log(response.data);
+    return 'success';
+ } catch (error) {
+    console.error(error);
+    return 'error';
+ }
 
 }
 
+const studentRegisterSchema = z.object({
+  name: z.string().min(1, "Name must be at least 1 character long")
+     .max(50, "Name must be no more than 50 characters long"),
+     
+  email: z.string().email(),
+
+  class: z.number().int().min(1, "Class must be a number between 1 and 12").max(12, "Class must be a number between 1 and 12"),
+  
+  phone: z.string()
+     .min(10, "Phone number must be exactly 10 digits long")
+     .max(10, "Phone number must be exactly 10 digits long")
+     .refine(phone => /^\d{10}$/.test(phone), {
+       message: "Phone number must be a 10 digit number",
+     }),
+
+    reffralId:z.string().min(1, "Name must be at least 1 character long")
+    .max(12, "Name must be no more than 50 characters long"),
+  
+ });
+
 export async function studentRegister(
   prevState: string | undefined,
-  formData: FormData) {
-    return 'sucess'
+  formData: FormData) 
+  {
+
+
+    const formattedData = {
+        "email":formData.get('email'),
+        "name":formData.get('name'),
+        "phoneNumber":formData.get('contact'),
+        "currentClass":formData.get('class'),
+        "reffralId":'4d2cbab33c4d'    
+     };
+
+   const validationResult = teacherRegisterSchema.safeParse(formattedData);
+   if (!validationResult.success) {
+    const errorMessages = validationResult.error.issues.map(issue => issue.message);
+    console.log(errorMessages)
+    return errorMessages.join(', ');
+    }
+    console.log(validationResult)
+
+
+    const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/register';
+
+    try {
+        const response = await axios.post(apiEndpoint, formattedData);
+        console.log(response.data);
+        return 'success';
+    } catch (error) {
+        console.error(error);
+        return 'error';
+    }
   
 }
