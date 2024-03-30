@@ -146,7 +146,7 @@ const teacherRegisterSchema = z.object({
  email: z.string().email(),
  completeAddress: z.string().min(1, "Complete address must be at least 1 character long").max(200, "Complete address must be no more than 200 characters long"),
  description: z.string().min(1, "Description must be at least 1 character long").max(200, "Description must be no more than 200 characters long"),
- locality: z.string().min(1, "Locality must be at least 1 character long").max(50, "Locality must be no more than 50 characters long"),
+ locality: z.string().min(1, "Locality must be at least 1 character long").max(100, "Locality must be no more than 50 characters long"),
  phone: z.string()
     .min(10, "Phone number must be exactly 10 digits long")
     .max(10, "Phone number must be exactly 10 digits long")
@@ -165,11 +165,11 @@ export async function teacherRegister(
  const formattedData = {
     "name": formData.get('name'),
     "email": formData.get('email'),
-    "completeAddress": "_",
-    "description": "Qualified Teacher",
-    "locality": formData.get('address'),
+    "completeAddress": formData.get('address'),
+    "description": formData.get('description'),
+    "locality": formData.get('coachingLocation'),
     "phone": formData.get('contact'),
-    "qualification": "not given",
+    "qualification": formData.get("qualifications"),
     "subjectTeaching": formData.get('subject')
  };
 
@@ -181,8 +181,7 @@ export async function teacherRegister(
   console.log(errorMessages)
   return errorMessages.join(', ');
   }
-  console.log(validationResult)
-  
+  console.log(validationResult);
 
  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/teacher/register';
 
