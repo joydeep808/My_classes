@@ -1,15 +1,6 @@
 import ProfileCard from './profilecard';
+import {profiles} from '@/app/pageData'
 
-const profiles = [
-  
-  { pictureSrc: '/default_profile.svg', name: 'Sanjai Dat', subject: 'No subject', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'John Doe', subject: 'Computer Science', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'Sanjai Dat', subject: 'No subject', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'John Doe', subject: 'Computer Science', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'Sanjai Dat', subject: 'No subject', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'John Doe', subject: 'Computer Science', likes: 0, followers: 0 },
-  // Add more profiles as needed
-];
 
 const ProfileList = () => {
   return (
