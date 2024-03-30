@@ -63,7 +63,7 @@ export default function StudentRegisterForm(){
                     className="peer block w-full rounded-full border-0 bg-gray-200 
                     py-[9px] pl-10 text-sm p-5 placeholder:text-gray-700 placeholder:text-base"
                     id="class"
-                    type='number'
+                    type="number"
                     name="class"
                     placeholder="Enter class you are in"
                     required
@@ -147,8 +147,8 @@ export default function StudentRegisterForm(){
             >
                 {errorMessage && (
                 <>
-                    <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-                    <p className="text-sm text-red-500">{errorMessage}</p>
+                    <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
+                    <p className="text-sm ">{errorMessage}</p>
                 </>
                 )}
             </div>

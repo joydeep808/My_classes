@@ -1,21 +1,12 @@
 import ProfileCard from './profilecard';
+import {profiles} from '@/app/pageData'
 
-const profiles = [
-  
-  { pictureSrc: '/default_profile.svg', name: 'Sanjai Dat', subject: 'No subject', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'John Doe', subject: 'Computer Science', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'Sanjai Dat', subject: 'No subject', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'John Doe', subject: 'Computer Science', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'Sanjai Dat', subject: 'No subject', likes: 0, followers: 0 },
-  { pictureSrc: '/default_profile.svg', name: 'John Doe', subject: 'Computer Science', likes: 0, followers: 0 },
-  // Add more profiles as needed
-];
 
 const ProfileList = () => {
   return (
-    <div className='flex  overflow-x-auto overflow-y-hidden w-screen gap-2 md:overflow-y-auto md:flex-col md:w-60 md:h-[80vh] rounded-2xl'>
+    <div className='flex  overflow-x-auto overflow-y-hidden w-screen gap-5 md:overflow-y-auto md:flex-col md:w-64 md:h-[85vh] '>
       {profiles.map((profile, index) => (
-        <div key={index} className='flex-shrink-0  bg-indigo-400 shadow-lg rounded-3xl hover:shadow-2xl'>
+        <div key={index} className='flex-shrink-0  bg-slate-50 shadow-xl rounded-3xl hover:shadow-2xl '>
           <ProfileCard  {...profile} />
         </div>
       ))}
