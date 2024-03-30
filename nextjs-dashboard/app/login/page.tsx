@@ -5,9 +5,12 @@ import Link from 'next/link';
 export default function LoginPage() {
   return (
     <main >
-      <Link href='./' className='flex w-[44vw] h-[45vw]  absolute sm:w-[30vw] sm:h-[32vw]
-       -left-6 -top-16 items-start bg-violet-700 shadow-lg rounded-full text-white'>
-         <MyClassLogoWhite />
+      <Link href='./' className='flex w-[60vw] h-[20vw]  absolute md:w-[30vw] md:h-[10vw] sm:w-[50vw] sm:h-[15vw]
+        -left-16 -top-1 items-center bg-violet-700 shadow-lg rounded-full text-white'>
+        <div className='item-center mx-auto'>
+            <MyClassLogoWhite />
+        </div>
+            
       </Link>
 
 

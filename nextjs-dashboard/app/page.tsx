@@ -2,23 +2,8 @@ import { MyClassLogoBlack } from './ui/myclass-logo';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProfileList from './ui/teachers/profileList';
+import {servicesList,batchList} from '@/app/pageData'
 
-
-const servicesList = [
-  {name: 'Dedicated-doubt-solving', href: './dashboard', imagesrc: '/Doubt.svg',},
-  {name: 'Mentorship-sessions', href: './dashboard', imagesrc: '/Mentorship.svg',},
-  {name: 'Progress-tracking', href: './dashboard', imagesrc: '/Progress.svg',},
-  {name: 'notes-and-course-materila', href: './dashboard', imagesrc: '/Notes.svg',},
-  {name: 'Test-series', href: './dashboard', imagesrc: '/Test series.svg',},
-  {name: 'career-consultation', href: './dashboard', imagesrc: '/Consultations.svg',},
-]
-
-const batchList = [
-  {name: "NEET" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
-  {name: "JEE" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
-  {name: "school" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
-
-]
 
 export default function Page() {
   return (
@@ -40,7 +25,7 @@ export default function Page() {
         <div className="flex flex-col justify-center items-center rounded-3xl bg-gray-300  pt-9 md:w-10/12 md:pt-2">
           <p className="flex justify-center text-2xl text-center text-gray-800  md:leading-normal">
             <strong>
-            Meet the <span className="text-indigo-700"> experienced tution teachers</span> of Agartala!  
+            Find Agartala's <span className="text-indigo-700"> most experienced offline </span> tution teachers!  
             </strong>
           </p>
           {/* <button className='rounded-2xl bg-indigo-700 w-20 text-white p-1 font-semibold'>explore</button> */}
@@ -52,13 +37,13 @@ export default function Page() {
           </div>
         </div>
         
-        {/* <div className="flex flex-col items-center self-start justify-center  md:h-2/5 md:px-2 md:py-0 md:mb-auto">
+        <div className="flex flex-col items-center self-start justify-center  md:h-2/5 md:px-2 md:py-0 md:mb-auto">
           <strong className='font-extrabold text-2xl'>
-            Teachers in Agartala</strong>
+            Top Rated Teachers</strong>
             
             <ProfileList/>
           
-        </div> */}
+        </div> 
 
       </div>
 
