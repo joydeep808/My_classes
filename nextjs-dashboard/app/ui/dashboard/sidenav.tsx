@@ -3,7 +3,7 @@ import NavLinks from '@/app/ui/dashboard/nav-links';
 import {MyClassLogoWhite} from '@/app/ui/myclass-logo';
 import { PowerIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 import { signOut,auth } from '@/auth';
-import {useSession } from 'next-auth/react';
+
 
 export default function SideNav() {
   
