@@ -6,6 +6,7 @@ interface ProfileProps {
   name: string;
   subject: string;
   qualifications: string;
+  experience: string;
 }
 
 const ProfileCard: React.FC<ProfileProps> = ({ 
@@ -13,7 +14,8 @@ const ProfileCard: React.FC<ProfileProps> = ({
     pictureSrc = '/default_profile.svg',
     name = 'John Doe',
     subject = 'No subject',
-    qualifications = 'empty'
+    qualifications = 'empty',
+    experience = ""
 
  }) => {
   return (
@@ -25,6 +27,7 @@ const ProfileCard: React.FC<ProfileProps> = ({
         <h2 className="text-lg font-semibold">{name}</h2>
         <p className="text-sm text-gray-900">{subject}</p>
         <p className="text-sm text-gray-900">{qualifications}</p>
+        <p className="text-sm text-gray-900">experience: {experience}</p>
         
       </div>
       {/* <div className="flex items-center mt-auto self-end">

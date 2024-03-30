@@ -25,7 +25,7 @@ export default function Page() {
         <div className="flex flex-col justify-center items-center rounded-3xl bg-gray-300  pt-9 md:w-10/12 md:pt-2">
           <p className="flex flex-col justify-center text-2xl text-center text-gray-800  md:leading-normal">
             <strong>
-            Find Agartala's <span className="text-indigo-700"> most experienced offline </span> tution teachers!  
+            Find Agartala&apos;s <span className="text-indigo-700"> most experienced offline </span> tution teachers!  
             </strong><br></br>connecting students with teachers 
           </p>
           {/* <button className='rounded-2xl bg-indigo-700 w-20 text-white p-1 font-semibold'>explore</button> */}
