@@ -4,6 +4,7 @@ import LatestInvoices from '../../ui/dashboard/latest-invoices';
 import { fetchLatestInvoices, fetchCardData } from '@/app/lib/data';
 import CardWrapper from '@/app/ui/dashboard/cards';
 import { Suspense } from 'react';
+import { MyClassLogoBlack } from '@/app/ui/myclass-logo';
 
 
 
@@ -21,6 +22,7 @@ export default async function Page() {
         <h1 className={'${lustiana.className} mb-4 text-xl md:text-2xl'}>
           Dashboard
         </h1>
+        
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Suspense >
           <CardWrapper />

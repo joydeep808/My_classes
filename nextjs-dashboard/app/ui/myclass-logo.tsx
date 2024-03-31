@@ -26,7 +26,7 @@ export function MyClassLogoWhite() {
       className=" flex flex-row m-auto  self-center items-center justify-start leading-none w-4/5 h-12   font-medium"
     >
       {/* <BookOpenIcon className="w-8 rotate-[15deg] mx-1  md:w-12 " /> */}
-      <Image src='/logo/White icon.svg' height={100} width={100} alt="my classes logo"
+      <Image src='/logo/White icon.svg' height={100} width={100} alt="my classes logo "  loading="eager"
       className='w-12 mx-2'></Image>
       <p className="text-lg  font-semibold">My Classes</p>
     </div>
