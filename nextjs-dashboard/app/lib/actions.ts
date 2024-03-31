@@ -4,10 +4,11 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { signIn } from '@/auth';
+import { signIn ,auth } from '@/auth';
 import { AuthError } from 'next-auth';
 import axios, { AxiosError } from 'axios';
 import {handleAxiosError} from './handleAxiosError'
+import { studentRegisterSchema ,teacherRegisterSchema} from './definitions';
  
 const FormSchema = z.object({
   id: z.string(),
@@ -139,23 +140,7 @@ export async function deleteInvoice(id: string) {
 
 // Define the Zod schema
 
-const teacherRegisterSchema = z.object({
- name: z.string().min(1, "Name must be at least 1 character long")
-    .max(50, "Name must be no more than 50 characters long"),
-    
- email: z.string().email(),
- completeAddress: z.string().min(1, "Complete address must be at least 1 character long").max(200, "Complete address must be no more than 200 characters long"),
- description: z.string().min(1, "Description must be at least 1 character long").max(200, "Description must be no more than 200 characters long"),
- locality: z.string().min(1, "Locality must be at least 1 character long").max(100, "Locality must be no more than 50 characters long"),
- phone: z.string()
-    .min(10, "Phone number must be exactly 10 digits long")
-    .max(10, "Phone number must be exactly 10 digits long")
-    .refine(phone => /^\d{10}$/.test(phone), {
-      message: "Phone number must be a 10 digit number",
-    }),
- qualification: z.string().min(1, "Qualification must be at least 1 character long").max(50, "Qualification must be no more than 50 characters long"),
- subjectTeaching: z.string().min(1, "Subject teaching must be at least 1 character long").max(50, "Subject teaching must be no more than 50 characters long"),
-});
+
 
 
 export async function teacherRegister(
@@ -196,29 +181,7 @@ export async function teacherRegister(
  }
 }
 
-const studentRegisterSchema = z.object({
-  name: z.string().min(1, "Name must be at least 1 character long")
-    .max(50, "Name must be no more than 50 characters long"),
-     
-  email: z.string().email(),
 
-  currentClass: z.string().refine(classString => {
-    const classNumber = parseInt(classString);
-    return !isNaN(classNumber) && classNumber >= 1 && classNumber <= 12;
-  }, {
-    message: "Class must be a number between 1 and 12",
-  }),
-
-  phoneNumber: z.string()
-    .min(10, "Phone number must be exactly 10 digits long")
-    .max(10, "Phone number must be exactly 10 digits long")
-    .refine(phone => /^\d{10}$/.test(phone), {
-      message: "Phone number must be a 10 digit number",
-    }),
-
-  reffralId: z.string().min(1, "Name must be at least 1 character long")
-    .max(12, "Name must be no more than 50 characters long"),
-});
 
 interface ErrorResponse {
   statusCode?: number;
@@ -261,4 +224,21 @@ export async function studentRegister(
         return message;
       }
   
+}
+
+export async function userdata() {
+  const data = await auth();
+  return data;
+}
+
+export async function fetchTeachers(){
+  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/showTeachers';
+
+  try{
+    const response = await axios.get(apiEndpoint)
+    console.log(response);
+  }catch (error){
+    const message = handleAxiosError(error);
+    return message;
+  }
 }

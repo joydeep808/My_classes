@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { fetchTeachers } from '@/app/lib/actions';
 
 interface Teacher {
     id: number;
@@ -19,10 +20,10 @@ export default function Page() {
  const [itemsPerPage, setItemsPerPage] = useState(10);
 
  useEffect(() => {
-    const fetchTeachers = async () => {
+    const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get<Teacher[]>('YOUR_API_ENDPOINT');
+        const response = await fetchTeachers();
         setAllTeachers(response.data);
       } catch (error) {
         console.error('Error fetching data: ', error);
