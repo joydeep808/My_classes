@@ -1,8 +1,10 @@
+'use client'
 import { MyClassLogoBlack } from './ui/myclass-logo';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProfileList from './ui/teachers/profileList';
 import {servicesList,batchList} from '@/app/pageData'
+
 
 
 export default function Page() {
@@ -28,7 +30,7 @@ export default function Page() {
             Find Agartala&apos;s <span className="text-indigo-700"> most experienced offline </span> tution teachers!  
             </strong><br></br>connecting students with teachers 
           </p>
-          {/* <button className='rounded-2xl bg-indigo-700 w-20 text-white p-1 font-semibold'>explore</button> */}
+          <button  className='rounded-2xl bg-indigo-700 w-20 text-white p-1 font-semibold'>explore</button> 
          
           <Image src='/hero-home.svg' width={900} height={100} alt='headding image'/>
           <div className='bg-indigo-700 w-full text-white ' >

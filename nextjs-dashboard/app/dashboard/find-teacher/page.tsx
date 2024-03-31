@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import { fetchTeachers } from '@/app/lib/actions';
 import { handleAxiosError } from '@/app/lib/handleAxiosError';
-import ProfileCard from '@/app/ui/teachers/profilecard';
 import { Teacher } from './responseType';
 
 export default function Page() {

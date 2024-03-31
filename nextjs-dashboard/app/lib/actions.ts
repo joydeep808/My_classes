@@ -22,13 +22,13 @@ const FormSchema = z.object({
  
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 export type State = {
-    errors?: {
-      customerId?: string[];
-      amount?: string[];
-      status?: string[];
-    };
-    message?: string | null;
+  errors?: {
+    customerId?: string[];
+    amount?: string[];
+    status?: string[];
   };
+  message?: string | null;
+};
    
 export async function createInvoice(prevState: State, formData: FormData) {
 
@@ -64,8 +64,6 @@ export async function createInvoice(prevState: State, formData: FormData) {
 }
 
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
- 
-// ...
  
 export async function updateInvoice(
     id: string,
@@ -104,8 +102,7 @@ export async function updateInvoice(
 }
 
 export async function deleteInvoice(id: string) {
-    throw new Error('Failed to Delete Invoice');
-
+    
     try {
         await sql`DELETE FROM invoices WHERE id = ${id}`;
         revalidatePath('/dashboard/invoices');
@@ -116,29 +113,25 @@ export async function deleteInvoice(id: string) {
   }
 
 
-  export async function authenticate( 
-    prevState: string | undefined,
-    formData: FormData, 
-  ) {
-    try {
-      await signIn('credentials', formData);
-    } catch (error) {
-      if (error instanceof AuthError) {
-        switch (error.type) {
-          case 'CredentialsSignin':
-            return 'Invalid credentials.';
-          default:
-            return 'Something went wrong.';
-        }
+export async function authenticate( 
+  prevState: string | undefined,
+  formData: FormData, 
+) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
       }
-      throw error;
     }
+    throw error;
   }
+}
 
- 
-
-
-// Define the Zod schema
 
 
 
@@ -244,3 +237,22 @@ export async function fetchTeachers(){
     return message;
   }
 }
+
+
+
+export  default async function studentLogin() {
+  const data = {
+    email: "waynewonders365@gmail.com",
+    password: "b0e4b86a",
+  };
+  console.log(data)
+
+  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/login';
+  try {
+    const response = await axios.patch(apiEndpoint, data);
+    console.log(response);
+  } catch (error) {
+    console.error('Error logging in:', error);
+  }
+}
+
