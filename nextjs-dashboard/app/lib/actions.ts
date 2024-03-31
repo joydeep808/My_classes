@@ -172,7 +172,7 @@ export async function teacherRegister(
 
  try {
     const response = await axios.post(apiEndpoint, formattedData);
-    // console.log(response.data);
+    console.log(response.data);
     return response.data.message ;
  } catch (error) {
         const message = handleAxiosError(error);
@@ -236,7 +236,9 @@ export async function fetchTeachers(){
 
   try{
     const response = await axios.get(apiEndpoint)
-    console.log(response);
+    // console.log('the data')
+    // console.log(response.data);
+    return response
   }catch (error){
     const message = handleAxiosError(error);
     return message;

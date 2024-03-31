@@ -2,83 +2,48 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { fetchTeachers } from '@/app/lib/actions';
-
-interface Teacher {
-    id: number;
-    name: string;
-    videoLink: string;
-    description: string;
-   }
+// import { fetchTeachers } from '@/app/lib/actions';
+import { handleAxiosError } from '@/app/lib/handleAxiosError';
+import ProfileCard from '@/app/ui/teachers/profilecard';
+import { Teacher } from './responseType';
 
 export default function Page() {
  const [searchQuery, setSearchQuery] = useState<string>('');
  const [searchResults, setSearchResults] = useState<Teacher[]>([]);
  const [loading, setLoading] = useState<boolean>(false);
  const [allTeachers, setAllTeachers] = useState<Teacher[]>([]);
- const [currentPage, setCurrentPage] = useState(1);
- const [itemsPerPage, setItemsPerPage] = useState(10);
+
 
  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await fetchTeachers();
-        setAllTeachers(response.data);
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    fetchTeachers();
- }, []);
-
- useEffect(() => {
-    const filteredTeachers = allTeachers.filter(teacher =>
-      teacher.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setSearchResults(filteredTeachers);
- }, [searchQuery, allTeachers]);
-
- useEffect(() => {
-    const indexOfLastTeacher = currentPage * itemsPerPage;
-    const indexOfFirstTeacher = indexOfLastTeacher - itemsPerPage;
-    const currentTeachers = searchResults.slice(indexOfFirstTeacher, indexOfLastTeacher);
-    // You can set a state here if you need to use currentTeachers outside this useEffect
- }, [searchResults, currentPage, itemsPerPage]);
-
- useEffect(() => {
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(searchResults.length / itemsPerPage); i++) {
-      pageNumbers.push(i);
-    }
-    // You can set a state here if you need to use pageNumbers outside this useEffect
- }, [searchResults, itemsPerPage]);
-
- const search = async (query: string) => {
+  async function fetchTeachers(){
     setLoading(true);
-    try {
-      const response = await axios.get<Teacher[]>(`YOUR_API_ENDPOINT?query=${query}`);
-      setSearchResults(response.data);
-    } catch (error) {
-      console.error('Error fetching data: ', error);
-    } finally {
+    const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/showTeachers';
+  
+    try{
+      const response = await axios.get(apiEndpoint)
+      console.log('the data')
+      console.log(response.data.data);
+      setAllTeachers(response.data.data)
+    }catch (error){
+      const message = handleAxiosError(error);
+      console.log(message)
+    }finally{
       setLoading(false);
     }
- };
+  };
+    
 
- const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    search(searchQuery);
- };
+  fetchTeachers();
+ }, []);
+
+
 
  return (
     <main className="flex flex-col bg-gray-200 rounded-xl p-3">
       <div>
         {/* <form onSubmit={handleSearch} className='flex'> */}
-        <form  className='flex'>
+        <form  className='flex' action='fetchTeachers()'>
           <input
             type="text"
             className='w-10/12 rounded-3xl border-0 border-b-fuchsia-900'
@@ -91,22 +56,29 @@ export default function Page() {
       </div>
       
 
-      <div className="flex flex-col bg-red-300 my-3">
+      <div className="flex flex-col bg-yellow-200 my-3">
         <strong>List of teachers</strong>
         {loading ? (
           <p>Loading...</p>
         ) : (
-          searchResults.map((teacher) => (
-            <div key={teacher.id} style={{ width: '18rem', marginBottom: '1rem' }}>
-              <div>
-                <div>{teacher.name}</div>
-                <div className="mb-2 text-muted">Teacher ID: {teacher.id}</div>
-                <div>{teacher.description}</div>
-                <a href={teacher.videoLink} target="_blank" rel="noopener noreferrer">Watch Video</a>
-              </div>
+
+
+          allTeachers.map((teacher, index) => (
+            <div key={index} className='bg-violet-300 rounded-lg p-3 m-3'>
+              <h2>{teacher.description}</h2>
+              <p>Locality: {teacher.locality}</p>
+              <p>Complete Address: {teacher.completeAddress}</p>
+              <p>Status: {teacher.status}</p>
+              <h3>Teacher Information:</h3>
+              <p>Name: {teacher.TeacherInfo.name}</p>
+              <p>Email: {teacher.TeacherInfo.email}</p>
+              <p>Phone Number: {teacher.TeacherInfo.phoneNumber}</p>
             </div>
           ))
+
+
         )}
+
       </div>
       <div>
         {/* page numbers */}
