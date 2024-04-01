@@ -1,6 +1,6 @@
 'use client';
 
-import {  AtSymbolIcon,  KeyIcon,EyeIcon,  ExclamationCircleIcon,} from '@heroicons/react/24/outline';
+import {  AtSymbolIcon,  KeyIcon,EyeIcon,  ExclamationCircleIcon, UserCircleIcon,} from '@heroicons/react/24/outline';
 import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
@@ -13,6 +13,7 @@ export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [userType, setUserType] = useState('');
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -55,6 +56,8 @@ export default function LoginForm() {
           minLength={6}
         />
         <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+        
+        
         <button
           type="button"
           className="absolute inset-y-0 right-3 top-1/2 transform -translate-y-1/2 focus:outline-none"
@@ -63,6 +66,22 @@ export default function LoginForm() {
           <EyeIcon className="h-[18px] w-[18px] text-gray-700" />
         </button>
         
+      </div>
+
+      <div className="relative border-0 mt-4">
+        <label className="sr-only" htmlFor="userType">Teacher or Student</label>
+        <select
+          id="userType"
+          value={userType}
+          onChange={(e) => setUserType(e.target.value)}
+          name = "userType"
+          className="peer block w-full rounded-full border-0 bg-gray-200 py-[9px] pl-10 text-sm p-1 placeholder:text-gray-700 placeholder:text-base"
+        >
+          <option value="">Select your role</option>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+        <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
       </div>
     
       

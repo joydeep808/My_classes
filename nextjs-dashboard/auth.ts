@@ -10,13 +10,26 @@ import { handleAxiosError } from './app/lib/handleAxiosError';
 interface userCredentials{
   email: string;
   password: string;
+  userType?: string;
 }
+
 export async function getUser(data : userCredentials) {
   console.log('get user funciton')
 
   console.log(data)
+  
+  let apiEndpoint;
 
-  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/login';
+ if (data.userType === "student") {
+    apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/login';
+ } else {
+    apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/teacher/login';
+ }
+
+  delete data.userType;
+  // console.log("the data: ",data);
+  // console.log("the api: ", apiEndpoint)
+  
   try {
     const response = await axios.patch(apiEndpoint, data);
    
@@ -44,8 +57,9 @@ export const { auth, signIn, signOut } = NextAuth({
 
 
     async authorize(credentials) {
+      
       const parsedCredentials = z
-        .object({ email: z.string().email(), password: z.string().min(6) })
+        .object({ email: z.string().email(), password: z.string().min(6) ,userType: z.string()})
         .safeParse(credentials);
 
         if (parsedCredentials.success) {
