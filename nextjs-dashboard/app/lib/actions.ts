@@ -121,6 +121,7 @@ export async function authenticate(
     await signIn('credentials', formData);
   } catch (error) {
     if (error instanceof AuthError) {
+      // console.log("the error: ", error.cause?.err)
       switch (error.type) {
         case 'CredentialsSignin':
           return 'Invalid credentials.';
@@ -128,7 +129,12 @@ export async function authenticate(
           return 'Something went wrong.';
       }
     }
-    throw error;
+    else if (error instanceof Error) {
+      return error.message; 
+    } else {
+      return "An unknown error occurred";
+    }
+    
   }
 }
 
@@ -240,19 +246,5 @@ export async function fetchTeachers(){
 
 
 
-export  default async function studentLogin() {
-  const data = {
-    email: "waynewonders365@gmail.com",
-    password: "b0e4b86a",
-  };
-  console.log(data)
 
-  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/login';
-  try {
-    const response = await axios.patch(apiEndpoint, data);
-    console.log(response);
-  } catch (error) {
-    console.error('Error logging in:', error);
-  }
-}
 
