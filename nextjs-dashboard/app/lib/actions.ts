@@ -9,7 +9,8 @@ import { AuthError } from 'next-auth';
 import axios, { AxiosError } from 'axios';
 import {handleAxiosError} from './handleAxiosError'
 import { studentRegisterSchema ,teacherRegisterSchema} from './definitions';
- 
+
+
 const FormSchema = z.object({
   id: z.string(),
   customerId: z.string({
@@ -130,7 +131,14 @@ export async function authenticate(
       }
     }
     else if (error instanceof Error) {
+      console.log(error)
+      if (error.message === 'NEXT_REDIRECT'){
+        console.log(error)
+        redirect('/dashboard');
+      }
+
       return error.message; 
+
     } else {
       return "An unknown error occurred";
     }

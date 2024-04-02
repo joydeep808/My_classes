@@ -1,12 +1,12 @@
 'use client';
 
 import {  AtSymbolIcon,  KeyIcon,EyeIcon,  ExclamationCircleIcon, UserCircleIcon,} from '@heroicons/react/24/outline';
-import { Button } from './button';
+import { Button } from '../ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import Link from 'next/link';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 export default function LoginForm() {
@@ -15,9 +15,12 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [userType, setUserType] = useState('');
 
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  
   return (
     <form action={dispatch} className="flex gap-1  flex-col w-full px-6 max-w-[600px] mx-2 ">
 
@@ -104,8 +107,8 @@ export default function LoginForm() {
       >
         {errorMessage && (
           <>
-            <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-            <p className="text-sm text-red-500">{errorMessage}</p>
+            <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
+            <p className="text-sm ">{errorMessage}</p>
           </>
         )}
       </div>

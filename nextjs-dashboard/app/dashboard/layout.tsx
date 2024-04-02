@@ -1,5 +1,4 @@
-import SideNav from '@/app/ui/dashboard/sidenav';
-import { MyClassLogoWhite } from '../ui/myclass-logo';
+import SideNav from '@/app/dashboard/ui/sidenav';
  
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
