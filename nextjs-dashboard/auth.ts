@@ -4,11 +4,7 @@ import Credentials from 'next-auth/providers/credentials';
 import { z } from 'zod';
 import axios, { AxiosError } from 'axios';
 import { handleAxiosError } from './app/lib/handleAxiosError';
-interface userCredentials{
-  email: string;
-  password: string;
-  userType?: string;
-}
+import {User , userCredentials } from '@/app/lib/definitions'
 
 export async function getUser(data : userCredentials) {
   console.log('get user funciton')
@@ -28,17 +24,18 @@ export async function getUser(data : userCredentials) {
     const response = await axios.patch(apiEndpoint, data);
    
     if (response.data.success){
-      delete response.data.data.password;
-      delete response.data.data.incorrectPasswordCounter;
-      delete response.data.data.isAccountBlocked;
-      delete response.data.data.createdAt;
-      delete response.data.data.updatedAt;
-      delete response.data.data.__v;
-      delete response.data.data.sessionToken;
-      delete response.data.data.refreshToken;
-      delete response.data.data.isAccountFreez;
-      console.log(response.data.data)
-      return response.data.data;
+      const user: User = {
+        id: response.data.data._id,
+        name: response.data.data.name,
+        email: response.data.data.email,
+        userName: response.data.data.userName,
+        emailVerified:response.data.data.emailVerified,
+        phoneNumber: response.data.data.phoneNumber,
+        role: response.data.data.role,
+      };
+
+      console.log(user);
+      return user;
     }
     return null;
     
@@ -66,7 +63,8 @@ export const { auth, signIn, signOut } = NextAuth({
             
             return user;
 
-          }catch(error){
+          }
+          catch(error){
             if (error instanceof Error) {
               // console.log(error.message)
               throw new Error(error.message); 
