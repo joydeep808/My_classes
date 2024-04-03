@@ -37,7 +37,9 @@ import React, { useState, useEffect } from "react";
 import { userdata } from "@/app/lib/actions";
 import { Session } from "next-auth";
 
-export default function ProfilePage() {
+export default function ProfilePage(){
+
+
     const [data, setData] = useState<Session | null>(null);
 
     useEffect(() => {
@@ -51,6 +53,7 @@ export default function ProfilePage() {
 
     return (
         <main>
+
             <div className="">
                 <div className='text-center'>
                 <span className=''> here is the user profile: </span><br />
@@ -100,6 +103,7 @@ export default function ProfilePage() {
                         </div>
                     </Link>
                 </div>
+
             </div>
         </main>
     );
