@@ -21,7 +21,7 @@ const Performance: React.FC<PerformanceProps> = ({ score, maxScore, circleRadius
   const progress = (normalizedScore / 100) * circumference;
 
   const getCircleColor = () => {
-    return score > 74 ? 'green' :  score > 49 ? 'orange' : 'red';
+    return score > 89? 'green' : score > 69 ? 'dodgerblue' :  score > 49 ? 'orange' : 'red';
   };
 
   return (
@@ -43,12 +43,13 @@ const Performance: React.FC<PerformanceProps> = ({ score, maxScore, circleRadius
             cx={circleRadius+ stroke/2}
             cy={circleRadius + stroke/2}
             r={circleRadius }
-            fill="none"
+            fill="#eee"
             stroke={getCircleColor()} // Use dynamic color based on score
             strokeWidth={stroke}
             strokeDasharray={`${progress} ${circumference}`}
             transform={`rotate(-0 ${circleRadius + stroke} ${circleRadius + stroke})`}
-        /> 
+            strokeLinecap="round" 
+            /> 
         {/* Text to display the score */}
             <text x={circleRadius + stroke/2} y={circleRadius + 15 + stroke/2} fontSize="50" fill={getCircleColor()} 
             textAnchor="middle" className='font-bold'>

@@ -1,7 +1,7 @@
 'use server';
  
 import { redirect } from 'next/navigation';
-import { signIn ,auth } from '@/auth';
+import { signIn ,auth ,signOut} from '@/auth';
 import { AuthError } from 'next-auth';
 import axios from 'axios';
 import {handleAxiosError} from './handleAxiosError'
@@ -107,6 +107,8 @@ export async function studentRegister(prevState: string | undefined, formData: F
 
 export async function userdata() {
   const data = await auth();
+  // console.log(data)
+
   return data;
 }
 
@@ -124,7 +126,6 @@ export async function fetchTeachers(){
   }
 }
 
-
-
-
-
+export async function signUserOut(){
+  await signOut();
+}
