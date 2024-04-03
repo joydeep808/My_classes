@@ -60,9 +60,7 @@ export const { auth, signIn, signOut } = NextAuth({
           try{
             const user = await getUser(parsedCredentials.data);
             if (!user) return null;
-            
             return user;
-
           }
           catch(error){
             if (error instanceof Error) {
@@ -71,7 +69,6 @@ export const { auth, signIn, signOut } = NextAuth({
             } else {
               throw new Error("An unknown error occurred");
             }
-
           }
       }
       console.log('Invalid credentials');

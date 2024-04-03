@@ -1,24 +1,19 @@
-
 import { Suspense } from 'react';
-
-
-
+import Home from '@/app/ui/home'
+import Performance from './(performance)/user_performance';
+import Services from '../ui/services';
+import Batches from '../ui/batches';
 
 export default async function Page() {
-
-  
     return (
-      <main>
-        <h1 className={'${lustiana.className} mb-4 text-xl md:text-2xl'}>
-          Dashboard
-        </h1>
-        
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        
+      <main >
+        <div className='bg-slate-300'>
+        <Home/>
         </div>
+        <Performance  score={80} maxScore={100} circleRadius={85}/>
+        <Services/>
+        <Batches/>
         
       </main>
-
-
     );
   }

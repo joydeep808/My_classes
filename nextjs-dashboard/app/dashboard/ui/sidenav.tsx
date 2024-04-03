@@ -7,25 +7,24 @@ import { signOut } from '@/auth';
 
 export default function SideNav() {
   return (
-    <div className="flex h-full flex-col  pb-4 ">
+    <div className="flex h-16 pb-4 sticky top-0 z-10 bg-slate-100">
       <Link
-        className="mb-2 flex  items-end justify-start  bg-violet-600  md:h-40"
+        className=" flex  items-center justify-start h-16 py-3 bg-violet-600 rounded-sm w-40  text-white  self-center "
         href="/dashboard"
       >
-        <div className="flex w-40 text-white md:w-80 self-center">
           <MyClassLogoWhite />
-        </div>
       </Link>
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+      <div className="flex grow justify-evenluy mx-2 gap-2">
         <NavLinks />
+
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <form action={async () => {
             'use server';
             await signOut();
           }} 
           >
-          <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
-            <PowerIcon className="w-6" />
+          <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-violet-600 md:w-32 md:justify-start md:p-2 md:px-3">
+            <PowerIcon className="w-8" />
             <div className="hidden md:block">Sign Out</div>
           </button>
         </form>
