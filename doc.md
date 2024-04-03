@@ -1,0 +1,8 @@
+i was a fine developer
+i had avoided web development as the wid west style craziness of the web dev libraries and kibraries and cross compatibility betwee them all intimidated me a little, i understood web dev was about finding libraries and frameworks that are compatible with one another, a signle library with the wrong version could leed you to version correction dead lock where you infinitly correct the versions of modules untill you decide to write from scrath
+
+deu to my friend's request i picked up web dev again going back to the horror days of using react for the first time 2 years ago, luckily i did well enough this time and found it slightly easier , but then i came across "next-auth" next auth was a library that war recomeneded to me by a website to easily handle authentication but little did i know how i would regret this decision, while next auth does in some words make it easier easier to add authentication, it adds such a layer of abstraction even simple consepts about jwt and sessions seem in mystery, and the minimal amount of control i had while using next-auth with type script i just kept making interfaces upon interfaces uppon interfaces 
+
+i have decided throw away this shrade of abstraction and make my own auth logic, it can be tough and i probably dont know all the things i will need to implement, but i need answers, answer to WHY DOESN'T NEXT AUTH AUTOMATICALLY SET THE SESSION DATA VALUES BASED ON THE USER PASSED TO IN IN THE CREDENTIALS PROVIDER 
+
+will purge next-auth
