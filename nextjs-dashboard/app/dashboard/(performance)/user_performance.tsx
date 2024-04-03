@@ -4,58 +4,61 @@ import React, { useState, useEffect } from 'react';
 interface PerformanceProps {
   score: number;
   maxScore: number;
-  circleRadius?: number; // Optional prop for controlling the size of the circle
+  circleRadius?: number; 
+  stroke?: number;
 }
 
-const Performance: React.FC<PerformanceProps> = ({ score, maxScore, circleRadius = 2 }) => {
+const Performance: React.FC<PerformanceProps> = ({ score, maxScore, circleRadius = 2 , stroke=5, }) => {
   const [normalizedScore, setNormalizedScore] = useState(0);
 
   useEffect(() => {
-    
+
     const normalized = (score / maxScore) * 100;
     setNormalizedScore(normalized);
   }, [score, maxScore]);
 
-  // Calculate the stroke-dasharray for the SVG circle
   const circumference = 2 * Math.PI * circleRadius;
   const progress = (normalizedScore / 100) * circumference;
 
-  // Define a function to determine the color based on the score
   const getCircleColor = () => {
-    // Example: Change color to green if score is above 80
-    return score > 75 ? 'green' : 'tomato';
+    return score > 74 ? 'green' :  score > 49 ? 'orange' : 'red';
   };
 
   return (
-    <div className=" flex mx-auto h-80">
+    <div className=" flex flex-col md:flex-row mx-auto md:w-full gap-5 justify-evenly">
         
-        <svg className='mx-auto flex justify-center items-center self-center ' 
-        width={2 * circleRadius} height={2 * circleRadius} viewBox={`0 0 ${2 * circleRadius} ${2 * circleRadius}`}>
+        <svg className=' flex justify-center items-center self-center h-56 md:items-center md:w-60 md:m-4' 
+        width={2 * circleRadius + stroke} height={2 * circleRadius + stroke} viewBox={`0 0 ${2 * circleRadius+ stroke} ${2 * circleRadius+ stroke}`}>
         {/* Background circle */}
         <circle
-            cx={circleRadius}
-            cy={circleRadius}
-            r={circleRadius-5}
+            cx={circleRadius + stroke/2}
+            cy={circleRadius + stroke/2}
+            r={circleRadius}
             fill="none"
             stroke="#eee"
-            strokeWidth="10"
+            strokeWidth={stroke}
         />
         {/* Foreground circle - shows the progress */}
-  {/* <circle
-    cx={circleRadius}
-    cy={circleRadius}
-    r={circleRadius}
-    fill="none"
-    stroke={getCircleColor()} // Use dynamic color based on score
-    strokeWidth="10"
-    strokeDasharray={`${progress} ${circumference}`}
-    transform={`rotate(-90 ${circleRadius} ${circleRadius})`}
-  /> */}
-  {/* Text to display the score */}
-  <text x={circleRadius} y={circleRadius + 5} fontSize="20" fill={getCircleColor()} textAnchor="middle">
-    {score}
-  </text>
-</svg>
+            <circle
+            cx={circleRadius+ stroke/2}
+            cy={circleRadius + stroke/2}
+            r={circleRadius }
+            fill="none"
+            stroke={getCircleColor()} // Use dynamic color based on score
+            strokeWidth={stroke}
+            strokeDasharray={`${progress} ${circumference}`}
+            transform={`rotate(-0 ${circleRadius + stroke} ${circleRadius + stroke})`}
+        /> 
+        {/* Text to display the score */}
+            <text x={circleRadius + stroke/2} y={circleRadius + 15 + stroke/2} fontSize="50" fill={getCircleColor()} 
+            textAnchor="middle" className='font-bold'>
+                {score}
+            </text>
+        </svg>
+
+        <div className='flex'>
+            <span className='self-center font-bold'>your performace in your previous tests</span>
+        </div>
     </div>
   );
 };

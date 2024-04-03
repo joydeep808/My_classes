@@ -14,7 +14,7 @@ export default function Home(){
           {/* <button  className='rounded-2xl bg-indigo-700 w-20 text-white p-1 font-semibold'>explore</button>  */}
 
           <Image src='/hero-home.svg' width={900} height={100} alt='headding image' priority/>
-          <div className='bg-indigo-700 w-full text-white ' >
+          <div className='bg-indigo-700 w-full text-white rounded-md px-3 ' >
             <span >
               Trusted by 100 teachers and 1000+ students</span>
           </div>
