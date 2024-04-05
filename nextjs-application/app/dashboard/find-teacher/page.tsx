@@ -6,6 +6,8 @@ import axios from 'axios';
 import { handleAxiosError } from '@/app/lib/handleAxiosError';
 import { Teacher } from './responseType';
 
+import FindProfileCard from './find-profileCard';
+
 export default function Page() {
  const [searchQuery, setSearchQuery] = useState<string>('');
  const [searchResults, setSearchResults] = useState<Teacher[]>([]);
@@ -39,45 +41,36 @@ export default function Page() {
 
 
  return (
-    <main className="flex flex-col bg-gray-200 rounded-xl p-3">
-      <div>
-        {/* <form onSubmit={handleSearch} className='flex'> */}
-        <form  className='flex' action='fetchTeachers()'>
-          <input
-            type="text"
-            className='w-10/12 rounded-3xl border-0 border-b-fuchsia-900'
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search for teachers..."
-          />
-          <button type="submit" className='bg-violet-700 w-2/12 h-8 text-white self-center mx-1 rounded-full'>Search</button>
-        </form>
-      </div>
+    <main className="flex flex-col   p-1">
       
-
-      <div className="flex flex-col bg-yellow-200 my-3">
-        <strong>List of teachers</strong>
+      {/* <form  className='flex' action='fetchTeachers()'>
+        <input
+          type="text"
+          className='w-10/12 rounded-3xl border-0 border-b-fuchsia-900'
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search for teachers..."
+        />
+        <button type="submit" className='bg-violet-700 w-2/12 h-8 text-white self-center mx-1 rounded-full'>Search</button>
+      </form> */}
+      
+      <div className="flex flex-col  ">
+        <strong className='font-bold flex justify-center text-3xl py-4'>List of teachers</strong>
         {loading ? (
           <p>Loading...</p>
         ) : (
 
+          <div className='flex gap-3 overflow-y-auto flex-col  pb-20 '>
+            {allTeachers.map((teacher, index) => (
+              
+                <FindProfileCard key={index} pictureSrc='/default_profile.svg' 
+                name = {teacher.TeacherInfo.name }  subject={teacher.subjectTeaching.join()} 
+                qualifications={teacher.qualification} experience={teacher.description} 
+                locality={teacher.locality}/>
 
-          allTeachers.map((teacher, index) => (
-            <div key={index} className='bg-violet-300 rounded-lg p-3 m-3'>
-              <h2>{teacher.description}</h2>
-              <p>Locality: {teacher.locality}</p>
-              <p>Complete Address: {teacher.completeAddress}</p>
-              <p>Status: {teacher.status}</p>
-              <h3>Teacher Information:</h3>
-              <p>Name: {teacher.TeacherInfo.name}</p>
-              <p>Email: {teacher.TeacherInfo.email}</p>
-              <p>Phone Number: {teacher.TeacherInfo.phoneNumber}</p>
-            </div>
-          ))
-
-
+            ))}
+          </div>
         )}
-
       </div>
       <div>
         {/* page numbers */}
