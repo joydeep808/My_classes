@@ -43,7 +43,7 @@ export default function ProfilePage(){
                 {contentlist.map((cont , index) =>(
                     <Link onClick={signUserOut} href={cont.href} key={index} 
 
-                    className="flex justify-center rounded-sm w-full h-8  mx-4 ">
+                    className="flex justify-center self-center rounded-sm w-full h-8  mx-4 ">
                             <span className=' text-2xl md:text-base flex self-center '>
                             {cont.name}
                             </span>
@@ -52,7 +52,7 @@ export default function ProfilePage(){
 
 
                 <button onClick={signUserOut} 
-                    className="flex justify-center rounded-sm w-full h-8  mx-4 ">
+                    className="flex justify-center self-center rounded-sm w-full h-8  mx-4 ">
                     <PowerIcon className="  self-center w-8 mx-2" />
                     <span className=" text-2xl md:text-base flex self-center ">
                         
