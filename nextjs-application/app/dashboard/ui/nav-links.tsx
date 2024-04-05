@@ -8,7 +8,7 @@ import clsx from 'clsx';
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   {name: 'Find-teacher', href: '/dashboard/find-teacher',icon: MagnifyingGlassIcon},
-  { name: 'profile', href: '/dashboard/profile', icon: UserIcon },
+  // { name: 'profile', href: '/dashboard/profile', icon: UserIcon },
 ];
 
 export default function NavLinks() {

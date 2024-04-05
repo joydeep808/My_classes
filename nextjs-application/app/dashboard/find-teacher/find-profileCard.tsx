@@ -31,7 +31,7 @@ const FindProfileCard: React.FC<ProfileProps> = ({
         <p className="text-sm text-gray-900">subject Teaching: {subject}</p>
         <p className="text-sm text-gray-900">qualifications: {qualifications}</p>
         <p className="text-sm text-gray-900">description: {experience}</p>
-        <p className="text-sm text-gray-900">description: {locality}</p>
+        <p className="text-sm text-gray-900">area: {locality}</p>
         
       </div>
       {/* <div className="flex items-center mt-auto self-end">
