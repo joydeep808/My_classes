@@ -8,6 +8,7 @@ import { Teacher } from './responseType';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
+import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 
 export default function Page() {
@@ -66,31 +67,31 @@ export default function Page() {
           <p>Loading...</p>
         ) : (
           allTeachers.map((teacher, index) => (
-            <Link href="">
-              <div
-                key={index}
-                className=" hover: m-4 flex items-center justify-between rounded-lg bg-gradient-to-br from-slate-100 to-slate-200 p-4 shadow-lg hover:shadow-xl transition-all ease-linear"
-              >
-                <Image
-                  height={70}
-                  width={70}
-                  src={profileImg}
-                  alt="pfp"
-                  className=""
-                />
-                <div className="flex flex-1 flex-col text-center">
-                  <h2 className="text-2xl font-bold md:text-xl">
-                    {teacher.TeacherInfo.name}
-                  </h2>
-                  <p>{teacher.subjectTeaching}</p>
-                </div>
-                <div>
-                  <button>
-                    <PlusCircleIcon className='w-10 text-violet-700 hover:text-violet-400 ease-linear transition-colors md:w-7'/>
-                  </button>
-                </div>
+            <div
+              key={index}
+              className=" hover: ease-linea m-4 flex items-center justify-between rounded-lg bg-gradient-to-br from-slate-100 to-slate-200 p-4 shadow-lg transition-all hover:shadow-xl"
+            >
+              <Image
+                height={70}
+                width={70}
+                src={profileImg}
+                alt="pfp"
+                className="w-12 "
+              />
+              <div className="flex flex-1 flex-col text-center">
+                <h2 className="px-2 text-base font-bold md:text-xl">
+                  {teacher.TeacherInfo.name}
+                </h2>
+                <p>{teacher.subjectTeaching}</p>
               </div>
-            </Link>
+              <div>
+                <Link href="/dashboard/teacher-profile">
+                  <button>
+                    <ArrowRightCircleIcon className="w-10 text-violet-700 transition-colors ease-linear hover:text-violet-400 md:w-7" />
+                  </button>
+                </Link>
+              </div>
+            </div>
           ))
         )}
       </div>
