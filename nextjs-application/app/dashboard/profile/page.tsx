@@ -41,7 +41,7 @@ export default function ProfilePage(){
             
             <div className='flex  flex-col md:flex-row gap-8 md:gap-0 justify-evenly mt-auto '>
                 {contentlist.map((cont , index) =>(
-                    <Link onClick={signUserOut} href={cont.href} key={index} 
+                    <Link href={cont.href} key={index} 
 
                     className="flex justify-center self-center rounded-sm w-full h-8  mx-4 ">
                             <span className=' text-2xl md:text-base flex self-center '>
@@ -51,17 +51,10 @@ export default function ProfilePage(){
                 ))}
 
 
-                <button onClick={signUserOut} 
-                    className="flex justify-center self-center rounded-sm w-full h-8  mx-4 ">
-                    <PowerIcon className="  self-center w-8 mx-2" />
-                    <span className=" text-2xl md:text-base flex self-center ">
-                        
-                        Sign Out
-                    </span>
+                <button onClick={() => signUserOut()} className="flex justify-center self-center rounded-sm w-full h-8 mx-4">
+                    <PowerIcon className="self-center w-8 mx-2" />
+                    <span className="text-2xl md:text-base flex self-center">Sign Out</span>
                 </button>
-                
-                
-            
 
             </div>
 
