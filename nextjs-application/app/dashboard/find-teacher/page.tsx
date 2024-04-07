@@ -85,9 +85,9 @@ export default function Page() {
                 <p>{teacher.subjectTeaching}</p>
               </div>
               <div>
-                <Link href="/dashboard/teacher-profile">
+                <Link href="/dashboard/teacher-profile-page">
                   <button>
-                    <ArrowRightCircleIcon className="w-10 text-violet-700 transition-colors ease-linear hover:text-violet-400 md:w-7" />
+                    <ArrowRightCircleIcon className="w-10 text-violet-700 transition-all ease-linear hover:text-violet-400 md:w-7 hover:translate-x-0.5" />
                   </button>
                 </Link>
               </div>
