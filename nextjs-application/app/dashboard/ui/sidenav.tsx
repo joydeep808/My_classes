@@ -17,7 +17,7 @@ export default function SideNav() {
     },[])
 
   return (
-    <div className="flex h-16  sticky top-0 z-10 bg-white bg-opacity-30 backdrop-blur-lg  ">
+    <div className="flex h-16  sticky top-0 z-10 bg-white bg-opacity-30 backdrop-blur-lg  border-b-[1px] border-b-slate-50/30">
       <Link href="/dashboard/profile" className=" flex  items-center justify-end 
       h-16 bg-violet-700 rounded-full w-40  text-white   px-8 absolute -left-12 ">
           {/* <MyClassLogoWhite /> */}
