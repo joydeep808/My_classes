@@ -1,4 +1,4 @@
-'use client'
+
 import Image from 'next/image';
 import { StarIcon } from '@heroicons/react/24/solid';
 import { Button } from '@/app/ui/button';
@@ -6,9 +6,13 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { number } from 'zod';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { HeartIcon } from '@heroicons/react/24/outline';
 
 const profilePicture = '/profilePicture_demo.png';
 const profileBanner = '/profileBanner_demo.png';
+const profilePath = '/dashboard/teacher-profile-page/teacher-profile'
+const demoPath = '/dashboard/teacher-profile-page/demo'
 
 const stars: {
   name: string,
@@ -37,10 +41,9 @@ const stars: {
   ]
 
 const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
-  const [rating, setRating] = useState<number|null>(null);
-  const [hover, setHover] = useState<number>(0);
+  const pathname = usePathname();
   return (
-    <div className="gap-4 grid grid-cols-1 md:grid-cols-3 p-3 mx-[3vw]">
+    <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mx-[3vw]">
       <div className='col-span-2'>
         <div className="h-fit relative grid  rounded-2xl shadow-lg bg-slate-50">
           <img
@@ -48,30 +51,52 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
             alt="profile_banner"
             className=" aspect-auto h-[30vh] w-full object-cover rounded-2xl"
           />
-          <div className="relative flex w-fit items-end gap-4 ">
-            <Image
-              src={profilePicture}
-              alt=""
-              width={1000}
-              height={1000}
-              className="absolute m-4 aspect-square w-28 md:w-44 lg:w-56 rounded-full object-cover border-white border-[10px] drop-shadow-xl "
-            />
-            <div className='w-56'></div>
-            <div className="mb-4 text-4xl p-2 m-4">
-              <h1 className="font-bold">Name of teacher</h1>
-              <p className='text-base'>Subject teaching</p>
+          <div className="relative flex flex-col md:flex-row flex-wrap w-full md:items-center gap-4">
+            <div className='w-full md:w-56 relative md:block md:static'>
+              <Image
+                src={profilePicture}
+                alt=""
+                width={1000}
+                height={1000}
+                className="absolute left-0 bottom-0 md:bottom-0 m-4 aspect-square w-28 md:w-44 lg:w-56 rounded-full object-cover border-white border-[10px] drop-shadow-xl "
+              />
+            </div>
+            <div className=" bg-slate-50 flex-col md:w-auto md:self-end flex md:flex-row justify-between items-center flex-1 mb-4 text-2xl lg:text-4xl p-2 m-4">
+              <div className='w-full md:w-auto'>
+                <h1 className="font-bold">Name of teacher</h1>
+                <p className='text-base'>Subject teaching</p>
+                <div className='flex text-base text-white bg-violet-700 w-fit px-2 my-2 rounded-full gap-2 '>
+                  <span>4.7</span> <StarIcon className='w-4' />
+                </div>
+              </div>
+              <div className='w-full justify-evenly text-center md:justify-normal md:text-left md:w-auto self-start md:self-auto bg-gradient-to-b from-violet-500 to-violet-700 flex gap-4 text-slate-100 p-1 px-2 md:p-2 md:px-4 rounded-2xl'>
+                <div>
+                  <h2 className='text-base md:text-2xl font-bold'>56</h2>
+                  <p className='text-sm'>Likes</p>
+                </div>
+                <div className='border-r-2 border-white/30'></div>
+                <div>
+                  <h2 className='text-base md:text-2xl font-bold'>150</h2>
+                  <p className='text-sm'>Students</p>
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <div className=' border-b-2 border-violet-600 flex mt-4 text-lg rounded-lg'>
-              <Link href={"./profile"} className='bg-gradient-to-t  p-4 from-violet-500/10 hover:from-violet-500/30'>Profile</Link>
-              <Link href={"./demo"} className='bg-gradient-to-t from-violet-500/30 p-4'>Demo Class</Link>
+            <div className='items-center border-b-2 border-violet-600 flex justify-between mt-4 text-lg rounded-lg'>
+              <div className='flex'>
+                <Link href={profilePath} className={clsx('bg-gradient-to-t  p-4 hover:from-violet-500/30', { 'from-violet-500/20': pathname == profilePath })}>Profile</Link>
+                <Link href={demoPath} className={clsx('bg-gradient-to-t  p-4 hover:from-violet-500/30', { 'from-violet-500/20': pathname == demoPath })}>Demo Class</Link>
+              </div>
+              <Button className='bg-transparent hover:bg-transparent active:bg-transparent'>
+                <HeartIcon className='w-8 m-4 text-slate-400 cursor-pointer transition-all hover:text-violet-500' />
+              </Button>
             </div>
           </div>
         </div>
         {children}
       </div>
-      <div className="h-fit w-full bg-slate-50 rounded-2xl p-6 shadow-xl flex flex-col  gap-4 sticky">
+      <div className="col-span-full lg:col-auto h-fit w-full bg-slate-50 rounded-2xl p-6 shadow-xl flex flex-col  gap-4">
         <div className=''>
           <h1 className='text-gray-800 text-3xl font-bold border-b-2 border-gray-200'>Contact Details</h1>
           <div className='grid gap-4 p-4'>
@@ -109,7 +134,7 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
               <label htmlFor="star" className='font-semibold text-violet-500 text-xl'>Your rating</label>
               <div className='flex'>
                 {stars.map((star, index) => {
-                  const currentRating:any= index + 1;
+                  const currentRating: any = index + 1;
                   return (
                     <div key={index}>
                       <label htmlFor={star.name}>
@@ -118,13 +143,10 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
                           name="star"
                           id={star.name}
                           value={currentRating}
-                          onClick={() => setRating(currentRating)}
                           className='hidden'
                         />
                         <StarIcon
-                          className={clsx('text-slate-400 w-8 cursor-pointer', { 'text-yellow-400': currentRating<= hover })}
-                          onMouseOver={() => setHover(currentRating )}
-                          onMouseLeave={() => setHover(0)}
+                          className={clsx('text-slate-400 w-8 cursor-pointer')}
                         />
                       </label>
                     </div>
@@ -143,7 +165,7 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </div>
-      
+
     </div>
   )
 }

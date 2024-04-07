@@ -1,10 +1,10 @@
 import Layout from "./layout";
-import Profile from "./profile/page";
+import TeacherProfile from "./teacher-profile/page";
 
 const teacherProfile = () =>{
     return (
         <div>
-            <Profile/>
+            <TeacherProfile/>
         </div>
     )
 }
