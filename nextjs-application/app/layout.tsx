@@ -5,10 +5,12 @@ import { Metadata } from 'next'
 import { Source_Sans_3} from 'next/font/google';
 
 export const metadata: Metadata = {
-  title: 'My Classes',
+
+  title: 'My Classes - Premier Destination for Offline Teachers in Agartala" could be a suitable title.',
   metadataBase: new URL('https://www.myclassestripura.com/'),
-  description: "Welcome to My Classes Tripura, your premier destination for connecting with Agartala's most experienced offline teachers. Our platform specializes in matching students with elite educators boasting 5+ years of teaching experience across a diverse array of subjects and curricula, including TBSE, CBSE, and ICSE, as well as preparation for competitive exams like JEE, NEET, and CUET.  Experience personalized learning like never before as you explore detailed profiles of seasoned teachers, each equipped with extensive qualifications and a proven track record of success. Whether you're navigating the intricacies of mathematics, mastering the sciences, delving into humanities, or honing your language skills, our platform ensures access to expert guidance tailored to your unique academic journey.  Booking sessions with your chosen teacher is effortless, allowing you to schedule in-person or online lessons at your convenience. Whether you're seeking additional support to excel in board exams or aiming to secure top scores in competitive entrance tests, My Classes Tripura offers flexible learning options to suit your needs. Our commitment to excellence extends beyond Agartala, reaching students in cities across Tripura, including Udaipur, Belonia, and beyond. Wherever you reside in the state, My Classes Tripura ensures that quality education is readily accessible, empowering you to achieve your academic aspirations with confidence.Join the ranks of thousands of successful students who have unlocked their full potential with My Classes Tripura. Whether you're embarking on your academic journey, aiming to enhance your subject proficiency, or pursuing ambitious career goals, our platform provides the resources and support you need to thrive. Start your path to success today with My Classes Tripura.",
-  keywords: ['teacher', 'alive', 'find','TBSE','Tripura','CBSE', 'ICSE', 'JEE', 'NEET'],
+  description: "Discover My Classes Tripura, your top choice for connecting with experienced teachers in Agartala, Tripura. Find elite educators with 5+ years of expertise across TBSE, CBSE, and ICSE, as well as coaching for exams like JEE and NEET. Benefit from personalized learning and easy session booking, whether for in-person or online lessons. Our platform ensures quality education accessible to students across Tripura, including Udaipur and Belonia. Join thousands of successful students who've achieved academic excellence with My Classes Tripura. Start your journey today!",
+  keywords: ['my' , 'my classes', 'my classes tripura', 'my classes app', 'my classes have started', 'my classroom', 'my classes coaching center', 'my class camput', 'my classes login', 'my clases games','my clases classlink','my clases for students', 'my classes video','TBSE'],
+
 }
 
 const source_Sans_3 = Source_Sans_3({
