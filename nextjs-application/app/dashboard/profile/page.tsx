@@ -1,110 +1,64 @@
-// "use client"
-// import Link from 'next/link';
-// import React, { useState, useEffect } from "react";
-// import { userdata } from "@/app/lib/actions";
-// import { Session } from "next-auth";
-
-// export default function ProfilePage() {
-
-//     const [data, setData] = useState<Session | null>(null);
-//     useEffect(() => {
-//         const fetchData = async () => {
-//             const result = await userdata();
-//             setData(result);
-//         };
-
-//         fetchData()
-//     }, [])
-
-//     return (
-//         <main>
-//             <div className="flex h-full flex-col  pb-4 ">
-//                 <span> here is the user profile: </span><br></br>
-//                 <span>{data?.user?.name}</span><br></br>
-//                 <span>{data?.user?.email}</span><br></br>
-//                 <span>{data?.user?.image}</span><br></br>
-//                 <Link
-//                     className="mb-2 flex  items-end justify-start  bg-violet-600  md:h-40"
-//                     href="/dashboard"
-//                 >
-//             </div>
-//         </main>
-//     );
-// }
 "use client"
 import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { userdata } from "@/app/lib/actions";
 import { Session } from "next-auth";
+import Image from 'next/image';
+import { signUserOut } from '@/app/lib/actions';
+import { PowerIcon } from '@heroicons/react/24/outline';
+
+const contentlist= [
+    // {name:'dashboard', href:''},
+    // {name:'Payment', href:''},
+    // {name:'Teachers & Mentors', href:''},
+    {name:'Settings', href:''},
+    {name:'Help & feedback', href:''},
+    {name:'About', href:''},
+    {name:'T&C', href:''},
+    ];
 
 export default function ProfilePage(){
-
-
     const [data, setData] = useState<Session | null>(null);
-
     useEffect(() => {
         const fetchData = async () => {
             const result = await userdata();
             setData(result);
         };
-
         fetchData();
     }, []);
 
     return (
-        <main>
+        <div className="font-semibold h-[80vb] flex flex-col ">
+            <div className=' flex flex-col   items-center my-4'>
+                <div className=" flex items-center mx-2 md:mx-6">
+                    <Image className='rounded-full w-44 ' src='/default_profile.svg' 
+                    width={100} height={100} alt='session user profile picture' />
+                </div>
+                <span className=' text-4xl'>{data?.user?.name}</span>
+                <span>{data?.user?.email}</span>
+                
+            </div>
+            
+            <div className='flex  flex-col md:flex-row gap-8 md:gap-0 justify-evenly mt-auto '>
+                {contentlist.map((cont , index) =>(
+                    <Link href={cont.href} key={index} 
 
-            <div className="">
-                <div className='text-center'>
-                <span className=''> here is the user profile: </span><br />
-                <span>{data?.user?.name}</span><br />
-                <span>{data?.user?.email}</span><br />
-                <span>{data?.user?.image}</span><br />
-                </div>
-                <div className='text-center mb-10'>
-                    <Link rel="stylesheet" href="/rana" />
-                    <a className='cursor-pointer'href=''>View Profile &gt;</a>
-                    
-                </div>
-                <div className='container '>
-                    <Link legacyBehavior href="/dashboard">
-                        <div className=''>
-                            <a className="text=center rounded-full  pl-10 pt-5 pb-4 mb-2 w-full flex  items-end justify-start  bg-blue-400">Dashboard</a>
-                        </div>
+                    className="flex justify-center self-center rounded-sm w-full h-8  mx-4 ">
+                            <span className=' text-2xl md:text-base flex self-center '>
+                            {cont.name}
+                            </span>
                     </Link>
-                    <Link legacyBehavior href="">
-                        <div className=''>
-                            <a className="cursor-default rounded-full pl-10 pt-5 pb-4 mb-2 w-full flex  items-end justify-start  bg-blue-400">Payment</a>
-                        </div>
-                    </Link>
-                    <Link legacyBehavior href="">
-                        <div className=''>
-                            <a className="cursor-default rounded-full pl-10 pt-5 pb-4 mb-2 w-full flex  items-end justify-start  bg-blue-400">Teachers & Mentors</a>
-                        </div>
-                    </Link>
-                    <Link legacyBehavior href="">
-                        <div className=''>
-                            <a className="cursor-default rounded-full pl-10 pt-5 pb-4 mb-2 w-full flex  items-end justify-start  bg-blue-400">Settings</a>
-                        </div>
-                    </Link>
-                    <Link legacyBehavior href="">
-                        <div className=''>
-                            <a className="cursor-default rounded-full pl-10 pt-5 pb-4 mb-2 w-full flex  items-end justify-start  bg-blue-400">Help & feedback</a>
-                        </div>
-                    </Link>
-                    <Link legacyBehavior href="">
-                        <div className=''>
-                            <a className="cursor-default rounded-full pl-10 pt-5 pb-4 mb-2 w-full flex  items-end justify-start  bg-blue-400">About</a>
-                        </div>
-                    </Link>
-                    <Link legacyBehavior href="">
-                        <div className=''>
-                            <a className="cursor-default rounded-full pl-10 pt-5 pb-4 mb-2 w-full flex  items-end justify-start  bg-blue-400">T&C</a>
-                        </div>
-                    </Link>
-                </div>
+                ))}
+
+
+                <button onClick={() => signUserOut()} className="flex justify-center self-center rounded-sm w-full h-8 mx-4">
+                    <PowerIcon className="self-center w-8 mx-2" />
+                    <span className="text-2xl md:text-base flex self-center">Sign Out</span>
+                </button>
 
             </div>
-        </main>
+
+        </div>
+        
     );
 }

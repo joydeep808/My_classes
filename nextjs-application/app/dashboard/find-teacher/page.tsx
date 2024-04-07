@@ -11,6 +11,8 @@ import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 
+import FindProfileCard from './find-profileCard';
+
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [searchResults, setSearchResults] = useState<Teacher[]>([]);
@@ -39,6 +41,7 @@ export default function Page() {
 
     fetchTeachers();
   }, []);
+
 
   return (
     <main className="flex flex-col rounded-xl bg-gray-200 p-3">
@@ -94,6 +97,7 @@ export default function Page() {
             </div>
           ))
         )}
+
       </div>
       <div>{/* page numbers */}</div>
     </main>
