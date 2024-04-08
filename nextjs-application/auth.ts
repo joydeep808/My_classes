@@ -14,9 +14,10 @@ export async function getUser(data : userCredentials) {
   let apiEndpoint;
 
  if (data.userType === "student") {
-    apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/login';
+    apiEndpoint = `${process.env.BACKEND_URL}/student/login`;
+    console.log(apiEndpoint)
  } else {
-    apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/teacher/login';
+    apiEndpoint = `${process.env.BACKEND_URL}/teacher/login`;
  }
   delete data.userType;
 

@@ -4,14 +4,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import { fetchTeachers } from '@/app/lib/actions';
 import { handleAxiosError } from '@/app/lib/handleAxiosError';
-import { Teacher } from './responseType';
+import { Teacher } from './ui/responseType';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 
-import FindProfileCard from './find-profileCard';
+import FindProfileCard from './ui/find-profileCard';
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -24,7 +24,7 @@ export default function Page() {
     async function fetchTeachers() {
       setLoading(true);
       const apiEndpoint =
-        'https://backendd.myclassestripura.com/api/v1/student/showTeachers';
+        `${process.env.BACKEND_URL}/student/showTeachers`;
 
       try {
         const response = await axios.get(apiEndpoint);
