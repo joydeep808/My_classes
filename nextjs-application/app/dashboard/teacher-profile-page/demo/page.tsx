@@ -1,7 +1,7 @@
 export default function TeacherDemo() {
     return (
         <div className="m-4 mt-10">
-            <h1 className="text-2xl font-bold ">Check out <span className="text-violet-600">Example teacher</span>'s Demo class</h1>
+            <h1 className="text-2xl font-bold ">Check out <span className="text-violet-600">Example teacher</span>&aposs Demo class</h1>
             <iframe
                 width="1280"
                 height="720"

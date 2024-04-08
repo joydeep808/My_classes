@@ -24,7 +24,7 @@ export default function Page() {
     async function fetchTeachers() {
       setLoading(true);
       const apiEndpoint =
-        'https://my-classes-backend.onrender.com/api/v1/student/showTeachers';
+        'https://my-classes-backend.onrender.com/api/v1/student/showTeacher';
 
       try {
         const response = await axios.get(apiEndpoint);
