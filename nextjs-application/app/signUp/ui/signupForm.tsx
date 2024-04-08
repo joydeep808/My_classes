@@ -10,9 +10,9 @@ export default function SignUpForm(){
     const [userType, setUserType] = useState('');
 
   return (
-    <div className='my-36 flex  flex-col'>
+    <div className='w-[40vw] mt-20 md:mt-10 flex  flex-col'>
     <select value={userType} onChange={(e) => setUserType(e.target.value)}
-    className=' bg-slate-200 rounded-lg w-32 self-center'>
+    className=' bg-slate-200 rounded-ss-xl rounded-ee-2xl w-32 self-start'>
         <option value="">Select User Type</option>
         <option value="teacher">Teacher</option>
         <option value="student">Student</option>

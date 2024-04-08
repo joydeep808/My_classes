@@ -22,7 +22,7 @@ export default function Home() {
           priority
         />
       </div>
-      <div className="w-full bg-violet-700 text-white text-center  ">
+      <div className="w-full bg-indigo-700 text-white text-center  ">
         <span>Trusted by 100 Teachers and 1000+ Students</span>
       </div>
     </div>
