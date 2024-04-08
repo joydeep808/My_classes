@@ -5,9 +5,9 @@ import SignUpForm from './ui/signupForm';
 export default function SignUpPage(){
     return(
         <main>
-            <Link href='./' className='flex w-[60vw] h-[20vw]  absolute md:w-[30vw] md:h-[10vw] sm:w-[50vw] sm:h-[15vw]
-             -left-16 -top-1 items-center bg-violet-700 shadow-lg rounded-full text-white'>
-                <div className='item-center mx-auto'>
+            <Link href='./' className='flex w-40 h-16 md:h-20
+         items-center bg-indigo-700 shadow-lg rounded-e-full text-white'>
+                <div className='item-center '>
                     <MyClassLogoWhite />
                 </div>
             

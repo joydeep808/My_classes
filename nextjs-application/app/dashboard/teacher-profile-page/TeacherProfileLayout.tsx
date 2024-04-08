@@ -46,7 +46,7 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
     <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mx-[3vw]">
       <div className='col-span-2'>
         <div className="h-fit relative grid  rounded-2xl shadow-lg bg-slate-50">
-          <img
+          <Image
             src={profileBanner}
             alt="profile_banner"
             className=" aspect-auto h-[30vh] w-full object-cover rounded-2xl"

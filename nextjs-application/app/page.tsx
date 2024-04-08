@@ -9,8 +9,8 @@ import Batches from './ui/batches';
 export default function Page() {
 
   return (
-    <main className="flex min-h-screen flex-col ">
-      <nav className="flex shadow-lg sticky h-20 top-0 z-10 shrink-0 items-end bg-white  p-2 md:h-22 gap-1 md:gap-3">
+    <main className="flex min-h-screen flex-col container ">
+      <nav className="flex w-screen shadow-lg sticky h-20 top-0 z-10 shrink-0 items-end bg-white  p-2 md:h-22 gap-1 md:gap-3">
         
        <MyClassLogoBlack/> 
 
@@ -20,17 +20,13 @@ export default function Page() {
             <span >Log  in / Sign up</span> 
         </Link>
         
-
       </nav>
 
-      <div className="mt-4 flex grow flex-col gap-2 md:flex-row">
       <Home/>
       <ProfileList/>
-      </div>
+   
       <Services/>
       <Batches/>
-      
-      
       
     </main>
   );

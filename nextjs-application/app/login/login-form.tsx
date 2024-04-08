@@ -96,7 +96,7 @@ export default function LoginForm() {
 
       <div className='flex justify-center text-xl my-2'>
         dont have an account? 
-        <Link href='./signUp' className='text-violet-600 font-bold px-1'>
+        <Link href='./signUp' className='text-indigo-600 font-bold px-1'>
           Sign Up</Link>
       </div>
 

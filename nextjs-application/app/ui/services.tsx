@@ -5,12 +5,14 @@ import Link from 'next/link';
 
 export default function Services(){
     return(
-        <div className="mt-4 flex flex-col gap-2 items-center justify-center p-1 md:w-screen ">
+        <div className="mt-4 flex flex-col gap-2 items-center justify-center p-1 md:w-screen   ">
         
         <strong className='font-extrabold text-2xl'>
           Our Services</strong>
 
+
         <div className='flex justify-evenly flex-wrap gap-4'>
+
           {servicesList.map((item) => {
             return(
               <Link key={item.name} href={item.href} className=' hover:shadow-2xl relative flex flex-col w-48 shadow-lg rounded-3xl h-auto transition-all ease-in items-center hover:scale-105' >
