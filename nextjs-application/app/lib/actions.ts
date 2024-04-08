@@ -60,7 +60,7 @@ export async function teacherRegister(prevState: string | undefined, formData: F
   }
   // console.log(validationResult);
 
-  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/teacher/register';
+  const apiEndpoint = 'https://backendd.myclassestripura.com/api/v1/teacher/register';
 
   try {
     const response = await axios.post(apiEndpoint, formattedData);
@@ -92,7 +92,7 @@ export async function studentRegister(prevState: string | undefined, formData: F
   return errorMessages.join(', ');
   }
 
-  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/register';
+  const apiEndpoint = 'https://backendd.myclassestripura.com/api/v1/student/register';
   try {
       const response = await axios.post(apiEndpoint, formattedData);
       // console.log(response.data);
@@ -113,7 +113,7 @@ export async function userdata() {
 }
 
 export async function fetchTeachers(){
-  const apiEndpoint = 'https://my-classes-backend.onrender.com/api/v1/student/showTeachers';
+  const apiEndpoint = 'https://backendd.myclassestripura.com/api/v1/student/showTeachers';
 
   try{
     const response = await axios.get(apiEndpoint)

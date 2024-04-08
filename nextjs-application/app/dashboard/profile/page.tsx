@@ -28,7 +28,7 @@ export default function ProfilePage(){
     }, []);
 
     return (
-        <div className="font-semibold h-[80vb] flex flex-col ">
+        <div className="font-semibold h-[90vh] flex flex-col justify-between ">
             <div className=' flex flex-col   items-center my-4'>
                 <div className=" flex items-center mx-2 md:mx-6">
                     <Image className='rounded-full w-44 ' src='/default_profile.svg' 
@@ -39,7 +39,7 @@ export default function ProfilePage(){
                 
             </div>
             
-            <div className='flex  flex-col md:flex-row gap-8 md:gap-0 justify-evenly mt-auto '>
+            <div className='flex  flex-col md:flex-row gap-8 md:gap-0 justify-evenly '>
                 {contentlist.map((cont , index) =>(
                     <Link href={cont.href} key={index} 
 
@@ -51,7 +51,7 @@ export default function ProfilePage(){
                 ))}
 
 
-                <button onClick={() => signUserOut()} className="flex justify-center self-center rounded-sm w-full h-8 mx-4">
+                <button onClick={() => signUserOut()} className="flex justify-center  self-center rounded-sm w-full h-8 mx-4">
                     <PowerIcon className="self-center w-8 mx-2" />
                     <span className="text-2xl md:text-base flex self-center">Sign Out</span>
                 </button>
