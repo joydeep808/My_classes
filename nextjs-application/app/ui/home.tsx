@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <>
-      <div className="mx-auto flex flex-col items-center justify-center rounded-3xl bg-gray-300  pt-9 md:w-10/12 md:pt-2">
+    <div className='flex flex-col w-screen mt-3'>
+      <div className="mx-auto flex flex-col items-center justify-center rounded-3xl  bg-gray-300  pt-9 md:w-screen md:pt-2">
         <p className="flex flex-col justify-center text-center text-2xl text-gray-800  md:leading-normal">
           <strong>
             Find Agartala&apos;s{' '}
@@ -22,9 +22,10 @@ export default function Home() {
           priority
         />
       </div>
-      <div className="w-full bg-violet-700 text-white text-center p-3">
+      <div className="w-full bg-violet-700 text-white text-center  ">
         <span>Trusted by 100 Teachers and 1000+ Students</span>
       </div>
-    </>
+    </div>
+      
   );
 }
