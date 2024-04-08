@@ -11,7 +11,7 @@ export default async function Page() {
         <div className='bg-slate-300'>
         <Home/>
         </div>
-        <Performance  score={90} maxScore={100} circleRadius={85} stroke={20}/>
+        {/* <Performance  score={90} maxScore={100} circleRadius={85} stroke={20}/> */}
         <ProfileList/>
         <Services/>
         <Batches/>
