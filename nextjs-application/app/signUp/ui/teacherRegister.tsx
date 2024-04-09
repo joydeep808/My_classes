@@ -17,7 +17,7 @@ export default function TeacherRegisterForm(){
       };
 
     return(
-        <form action={dispatch} className="flex gap-1   p-6 flex-col w-full max-w-[600px]  mx-2"  >
+        <form action={dispatch} className="flex gap-1  self-center p-6 flex-col w-full max-w-[600px]  mx-2"  >
         
 
             <strong className="  text-4xl font-semibold my-3 z-10">
