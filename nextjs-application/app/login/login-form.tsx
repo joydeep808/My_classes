@@ -7,14 +7,17 @@ import { authenticate } from '@/app/lib/actions';
 import Link from 'next/link';
 
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [userType, setUserType] = useState('');
-
+  const [userType, setUserType] = useState('student');
+  if(errorMessage){
+    toast.error(errorMessage)
+  }
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -80,7 +83,6 @@ export default function LoginForm() {
           name = "userType"
           className="peer block w-full rounded-full border-0 bg-gray-200 py-[9px] pl-10 text-sm p-1 placeholder:text-gray-700 placeholder:text-base"
         >
-          <option value="">Select your role</option>
           <option value="student">Student</option>
           <option value="teacher">Teacher</option>
         </select>
@@ -100,7 +102,7 @@ export default function LoginForm() {
           Sign Up</Link>
       </div>
 
-      <div
+      {/* <div
         className="flex h-8 items-end space-x-1"
         aria-live="polite"
         aria-atomic="true"
@@ -111,7 +113,7 @@ export default function LoginForm() {
             <p className="text-sm ">{errorMessage}</p>
           </>
         )}
-      </div>
+      </div> */}
 
     
     </form>

@@ -16,13 +16,16 @@ export async function authenticate( prevState: string | undefined, formData: For
     await signIn('credentials', formData);
 
   } catch (error) {
+    
     if (error instanceof AuthError) {
-      // console.log("the error: ", error.cause?.err)
+      console.log(error.type)
       switch (error.type) {
         case 'CredentialsSignin':
           return 'Invalid credentials.';
+        case "CallbackRouteError":
+          return error.cause?.err?.message;
         default:
-          return 'Something went wrong.';
+          return "";
       }
     }else if (error instanceof Error) {
       // console.log(error)
@@ -35,6 +38,7 @@ export async function authenticate( prevState: string | undefined, formData: For
       return "An unknown error occurred";
     }
   }
+  
 }
 
 
@@ -64,11 +68,11 @@ export async function teacherRegister(prevState: string | undefined, formData: F
 
   try {
     const response = await axios.post(apiEndpoint, formattedData);
-    console.log(response.data);
+    
     return response.data.message ;
   } catch (error) {
     const message = handleAxiosError(error);
-    // console.error(message);
+    
     return message;
   }
 }
