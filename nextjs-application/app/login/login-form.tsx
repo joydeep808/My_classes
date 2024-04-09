@@ -6,15 +6,24 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import Link from 'next/link';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [userType, setUserType] = useState('');
+  const [userType, setUserType] = useState('student');
 
+  
+
+  useEffect(()=>{
+    if (errorMessage){
+      toast(errorMessage);
+    }
+  },[errorMessage])
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -80,7 +89,7 @@ export default function LoginForm() {
           name = "userType"
           className="peer block w-full rounded-full border-0 bg-gray-200 py-[9px] pl-10 text-sm p-1 placeholder:text-gray-700 placeholder:text-base"
         >
-          <option value="">Select your role</option>
+          
           <option value="student">Student</option>
           <option value="teacher">Teacher</option>
         </select>
@@ -99,6 +108,8 @@ export default function LoginForm() {
         <Link href='./signUp' className='text-indigo-600 font-bold px-1'>
           Sign Up</Link>
       </div>
+      
+      
 
       <div
         className="flex h-8 items-end space-x-1"
@@ -107,8 +118,9 @@ export default function LoginForm() {
       >
         {errorMessage && (
           <>
-            <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
-            <p className="text-sm ">{errorMessage}</p>
+            <Toaster/>
+            {/* <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
+            <p className="text-sm ">{errorMessage}</p> */}
           </>
         )}
       </div>

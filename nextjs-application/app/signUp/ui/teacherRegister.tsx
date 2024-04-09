@@ -1,10 +1,12 @@
 
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {  AtSymbolIcon,  KeyIcon,EyeIcon,  ExclamationCircleIcon, UserIcon, MapPinIcon , BookOpenIcon ,AcademicCapIcon} from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { teacherRegister } from '@/app/lib/actions';
+import toast , {Toaster } from 'react-hot-toast'
+
 
 export default function TeacherRegisterForm(){
 
@@ -14,7 +16,13 @@ export default function TeacherRegisterForm(){
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
-      };
+    };
+    useEffect(()=>{
+        if (errorMessage){
+            toast(errorMessage);
+        }
+    },[errorMessage])
+
 
     return(
         <form action={dispatch} className="flex gap-1  self-center p-6 flex-col w-full max-w-[600px]  mx-2"  >
@@ -202,8 +210,9 @@ export default function TeacherRegisterForm(){
             >
                 {errorMessage && (
                 <>
-                    <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
-                    <p className="text-sm ">{errorMessage}</p>
+                    <Toaster/>
+                    {/* <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
+                    <p className="text-sm ">{errorMessage}</p> */}
                 </>
                 )}
             </div>

@@ -5,6 +5,8 @@ import {  AtSymbolIcon,  KeyIcon,EyeIcon,  ExclamationCircleIcon, UserIcon, MapP
 import { Button } from '@/app/ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { studentRegister } from '@/app/lib/actions';
+import { useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function StudentRegisterForm(){
 
@@ -15,6 +17,12 @@ export default function StudentRegisterForm(){
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
       };
+
+    useEffect(()=>{
+    if (errorMessage){
+        toast(errorMessage);
+    }
+    },[errorMessage])
 
     return(
         <form action={dispatch} className="flex gap-1  self-center p-6 flex-col w-full max-w-[600px]  mx-2"  >
@@ -147,8 +155,9 @@ export default function StudentRegisterForm(){
             >
                 {errorMessage && (
                 <>
-                    <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
-                    <p className="text-sm ">{errorMessage}</p>
+                    <Toaster/>
+                    {/* <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
+                    <p className="text-sm ">{errorMessage}</p> */}
                 </>
                 )}
             </div>
