@@ -9,13 +9,13 @@ import {User , userCredentials } from '@/app/lib/definitions'
 export async function getUser(data : userCredentials) {
   console.log('get user funciton')
 
-  console.log(data)
+  // console.log(data)
   
   let apiEndpoint;
 
  if (data.userType === "student") {
     apiEndpoint = `${process.env.BACKEND_URL}/student/login`;
-    console.log(apiEndpoint)
+    
  } else {
     apiEndpoint = `${process.env.BACKEND_URL}/teacher/login`;
  }
@@ -35,7 +35,7 @@ export async function getUser(data : userCredentials) {
         role: response.data.data.role,
       };
 
-      console.log(user);
+      // console.log(user);
       return user;
     }
     return null;
