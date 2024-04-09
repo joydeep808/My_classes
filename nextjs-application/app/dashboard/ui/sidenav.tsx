@@ -7,7 +7,9 @@ import { UserIcon } from '@heroicons/react/24/solid';
 export default function SideNav() {
 
   return (
-    <div className="flex h-16  sticky top-0 z-10 bg-white bg-opacity-30 backdrop-blur-lg shadow-md rounded ">
+
+    <div className="flex h-16  sticky top-0 z-10 bg-white bg-opacity-30 backdrop-blur-lg  border-b-[1px] border-b-slate-50/30">
+
       <Link href="/dashboard/profile" className=" flex  items-center justify-end 
       h-16 bg-indigo-700 rounded-e-full w-24  text-white   px-8  ">
           {/* <MyClassLogoWhite /> */}
