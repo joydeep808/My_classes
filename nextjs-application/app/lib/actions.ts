@@ -17,13 +17,9 @@ export async function authenticate( prevState: string | undefined, formData: For
 
   } catch (error) {
     if (error instanceof AuthError) {
-      // console.log("the error: ", error.cause?.err)
-      switch (error.type) {
-        case 'CredentialsSignin':
-          return 'Invalid credentials.';
-        default:
-          return 'Something went wrong.';
-      }
+      console.log("the error: ", error.cause?.err)
+      return error.cause?.err?.message
+
     }else if (error instanceof Error) {
       // console.log(error)
       if (error.message === 'NEXT_REDIRECT'){
