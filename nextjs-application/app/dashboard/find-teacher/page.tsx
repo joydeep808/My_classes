@@ -44,7 +44,7 @@ export default function Page() {
 
 
   return (
-    <main className="flex flex-col rounded-xl bg-gray-200 p-3">
+    <main className="flex flex-col rounded-xl bg-gray-200 p-3 h-screen">
       {/* <div>
          <form onSubmit={handleSearch} className='flex'> 
         <form className="flex" action="fetchTeachers()">

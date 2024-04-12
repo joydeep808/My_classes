@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 export default function Batches(){
     return(
-        <div className="flex flex-col gap-4 items-center justify-center p-1 md:w-screen md:px-16 md:py-6 " >
+        <div className="flex flex-col  gap-4 items-center justify-center  md:w-screen  md:py-6 " >
           <strong className='font-extrabold text-2xl'>
             Batches</strong>
-            <div className='flex  flex-col md:flex-row  mx-10 w-screen justify-evenly'>
+            <div className='flex  flex-col flex-wrap md:flex-row  w-screen justify-evenly'>
               {batchList.map((batches) => (
                 <Link key={batches.name} href={batches.href} className='p-4 bg-indigo-200 m-2 shadow-lg rounded-2xl hover:bg-indigo-50 '>
                   <strong>{batches.name}</strong>

@@ -5,6 +5,7 @@ import Home from '@/app/ui/home'
 import ProfileList from './ui/teachers/profileList';
 import Services from './ui/services';
 import Batches from './ui/batches';
+import Footer from './ui/footer';
 
 export default function Page() {
 
@@ -27,6 +28,8 @@ export default function Page() {
    
       <Services/>
       <Batches/>
+
+      <Footer/>
       
     </main>
   );
