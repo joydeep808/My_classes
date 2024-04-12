@@ -11,7 +11,7 @@ export default function Footer(){
                 <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
                     <div className="lg:w-1/2  w-full px-4 ml-auto">
                         
-                        <nav className="list-none mb-10 flex gap-4">
+                        <nav className="list-none mb-10 flex gap-4 justify-evenly">
                         
                             <a className="text-gray-600 hover:text-gray-800">T&C</a>
                         
