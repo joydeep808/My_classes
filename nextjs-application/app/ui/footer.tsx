@@ -9,21 +9,18 @@ export default function Footer(){
                     <p className="mt-2 text-sm text-gray-500">the place to look for your next teacher</p>
                 </div>
                 <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4 ml-auto">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-                        <nav className="list-none mb-10">
-                        <li>
+                    <div className="lg:w-1/2  w-full px-4 ml-auto">
+                        
+                        <nav className="list-none mb-10 flex gap-4 justify-evenly">
+                        
                             <a className="text-gray-600 hover:text-gray-800">T&C</a>
-                        </li>
-                        <li>
+                        
                             <a className="text-gray-600 hover:text-gray-800">Contact us</a>
-                        </li>
-                        <li>
+                        
                             <a className="text-gray-600 hover:text-gray-800">About us</a>
-                        </li>
-                        <li>
+                        
                             <a className="text-gray-600 hover:text-gray-800">Feedback</a>
-                        </li>
+                        
                         </nav>
                     </div>
                 
