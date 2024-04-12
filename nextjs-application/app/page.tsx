@@ -6,11 +6,16 @@ import ProfileList from './ui/teachers/profileList';
 import Services from './ui/services';
 import Batches from './ui/batches';
 import Footer from './ui/footer';
+import { useEffect } from 'react';
 
 export default function Page() {
 
+  useEffect(()=>{
+    confirm("hello! \nthis site is under construction \nwe are launching soon ")
+  },[])
+
   return (
-    <main className="flex min-h-screen flex-col container ">
+    <main className="flex min-h-screen flex-col  ">
       <nav className="flex w-screen shadow-lg sticky h-20 top-0 z-10 shrink-0 items-end bg-white  p-2 md:h-22 gap-1 md:gap-3">
         
        <MyClassLogoBlack/> 
