@@ -4,7 +4,7 @@ import { UserCircleIcon } from "@heroicons/react/24/solid";
 export default function Footer(){
     return(
         <div className="text-gray-600 body-font bg-slate-100 flex flex-col ">
-            <div className=" px-5 pt-12 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+            <div className=" px-5 pt-12 mx-auto flex md:items-center  lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                 <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     
                     <MyClassLogoBlack/>
