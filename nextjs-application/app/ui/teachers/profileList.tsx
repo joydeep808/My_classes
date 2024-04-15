@@ -5,7 +5,7 @@ import {profiles} from '@/app/pageData'
 const ProfileList = () => {
   return (
 
-    <div className="flex flex-col items-center self-start justify-center  md:h-2/5   md:mb-auto ">
+    <div className="flex flex-col items-center self-start justify-center  md:h-2/5   md:mb-auto mt-4">
       <strong className='font-extrabold text-2xl'>
         Top Rated Teachers</strong>
 

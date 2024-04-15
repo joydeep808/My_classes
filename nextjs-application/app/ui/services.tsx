@@ -11,7 +11,7 @@ export default function Services(){
           Our Services</strong>
 
 
-        <div className='flex justify-evenly flex-wrap gap-6 md:gap-8 p-2 w-screen'>
+        <div className='flex justify-evenly flex-wrap gap-6 md:gap-8 p-2 w-screen '>
 
           {servicesList.map((item) => {
             return(

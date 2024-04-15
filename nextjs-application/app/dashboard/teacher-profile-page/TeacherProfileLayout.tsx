@@ -43,12 +43,14 @@ const stars: {
 const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   return (
-    <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mx-[3vw]">
+    <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mx-[3vw]">
       <div className='col-span-2'>
         <div className="h-fit relative grid  rounded-2xl shadow-lg bg-slate-50">
           <Image
             src={profileBanner}
             alt="profile_banner"
+            width={1920}
+            height={1080}
             className=" aspect-auto h-[30vh] w-full object-cover rounded-2xl"
           />
           <div className="relative flex flex-col md:flex-row flex-wrap w-full md:items-center gap-4">
@@ -65,7 +67,7 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
               <div className='w-full md:w-auto'>
                 <h1 className="font-bold">Name of teacher</h1>
                 <p className='text-base'>Subject teaching</p>
-                <div className='flex text-base text-white bg-violet-700 w-fit px-2 my-2 rounded-full gap-2 '>
+                <div className='flex text-base text-white bg-violet-700 w-fit px-2 my-2 rounded-full gap-2 items-center'>
                   <span>4.7</span> <StarIcon className='w-4' />
                 </div>
               </div>
@@ -96,7 +98,7 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
         {children}
       </div>
-      <div className="col-span-full lg:col-auto h-fit w-full bg-slate-50 rounded-2xl p-6 shadow-xl flex flex-col  gap-4">
+      <div className="col-span-full lg:col-auto h-fit w-full bg-slate-50 rounded-2xl p-6 shadow-xl flex flex-col  gap-4 border-[1px] border-violet-600/30">
         <div className=''>
           <h1 className='text-gray-800 text-3xl font-bold border-b-2 border-gray-200'>Contact Details</h1>
           <div className='grid gap-4 p-4'>
@@ -155,12 +157,8 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
 
               </div>
               <label htmlFor="feedback" className='font-semibold text-violet-500 text-xl'>Your feedback</label>
-              <textarea name="feedback" id="student_feedback" cols={30} rows={10} placeholder='Enter your feedback' maxLength={500} className='resize-none w-full border-1 border-gray-200 rounded-xl'></textarea>
-              <Button
-                className='self-start bg-violet-500 hover:bg-violet-600 active:bg-violet-700'
-              >
-                Submit
-              </Button>
+              <textarea name="feedback" id="student_feedback" cols={30} rows={10} placeholder='Enter your feedback' maxLength={500} className='resize-none w-full border-1 border-gray-200 rounded-xl focus:border-violet-600'></textarea>
+              <input type="submit" value="Submit" className='self-start bg-violet-500 hover:bg-violet-600 active:bg-violet-700 p-2 text-white rounded-3xl cursor-pointer'/>
             </form>
           </div>
         </div>
