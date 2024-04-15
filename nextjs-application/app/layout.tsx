@@ -1,6 +1,7 @@
 import '@/app/ui/global.css';
 import Head from 'next/head';
 import { Metadata } from 'next'
+import Footer from './ui/footer';
 
 import { Source_Sans_3} from 'next/font/google';
 
@@ -20,8 +21,9 @@ const source_Sans_3 = Source_Sans_3({
 export default function RootLayout({ children,}: {children: React.ReactNode }) {
   return (
     
-    <html lang="en">
+    <html lang="en" className='w-[100vw]'>
       <body className={`${source_Sans_3.className} antialiased font-medium `}>{children}</body>
+      
     </html>
   );
 }
