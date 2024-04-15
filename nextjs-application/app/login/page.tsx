@@ -1,6 +1,7 @@
 import {MyClassLogoWhite} from '@/app/ui/myclass-logo';
 import LoginForm from '@/app/login/login-form';
 import Link from 'next/link';
+import {Toaster} from 'react-hot-toast'
  
 export default function LoginPage() {
   return (
@@ -17,6 +18,7 @@ export default function LoginPage() {
       <div className="flex items-center h-screen justify-center ">
       <LoginForm />
       </div>
+      <Toaster/>
         
       
     </main>

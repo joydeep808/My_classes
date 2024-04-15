@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {MyClassLogoWhite} from '../ui/myclass-logo';
 import SignUpForm from './ui/signupForm';
+import {Toaster } from 'react-hot-toast'
 
 export default function SignUpPage(){
     return(
@@ -16,6 +17,11 @@ export default function SignUpPage(){
             <div className="flex items-center  justify-center ">
                 <SignUpForm />
             </div>
+            
+
+            
+
+            <Toaster/>
            
 
         </main>
