@@ -117,7 +117,7 @@ export default function LoginForm() {
       
       
 
-      {/* <div
+       <div
         className="flex h-8 items-end space-x-1"
         aria-live="polite"
         aria-atomic="true"
@@ -129,7 +129,7 @@ export default function LoginForm() {
             <p className="text-sm ">{errorMessage}</p> */}
           </>
         )}
-      </div> */}
+      </div> 
 
     
     </form>
