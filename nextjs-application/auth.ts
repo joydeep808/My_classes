@@ -22,7 +22,9 @@ export async function getUser(data : userCredentials) {
   delete data.userType;
 
   try {
+    console.log(data)
     const response = await axios.patch(apiEndpoint, data);
+    
    
     if (response.data.success){
       const user: User = {
@@ -35,7 +37,7 @@ export async function getUser(data : userCredentials) {
         role: response.data.data.role,
       };
 
-      // console.log(user);
+      console.log(user);
       return user;
     }
     return null;

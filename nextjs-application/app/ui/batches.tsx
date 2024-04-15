@@ -9,7 +9,8 @@ export default function Batches(){
             Batches</strong>
             <div className='flex  flex-col flex-wrap md:flex-row  w-screen justify-evenly'>
               {batchList.map((batches) => (
-                <Link key={batches.name} href={batches.href} className='p-4 bg-indigo-200 m-2 shadow-lg rounded-2xl hover:bg-indigo-50 '>
+                <Link key={batches.name} href={batches.href} className='p-4 bg-indigo-200 m-2 shadow-lg rounded-2xl
+                  transition-all ease-in hover:scale-105 hover:shadow-2xl'>
                   <strong>{batches.name}</strong>
                   
                   <div className='flex'>
