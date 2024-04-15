@@ -5,7 +5,7 @@ import { signIn ,auth ,signOut} from '@/auth';
 import { AuthError } from 'next-auth';
 import axios from 'axios';
 import {handleAxiosError} from './handleAxiosError'
-import { studentRegisterSchema ,teacherRegisterSchema} from './definitions';
+import { studentRegisterSchema ,teacherRegisterSchema,otprequestSchema} from './definitions';
 
 
 
@@ -18,7 +18,7 @@ export async function authenticate( prevState: string | undefined, formData: For
   } catch (error) {
     if (error instanceof AuthError) {
       console.log("the error: ", error.cause?.err)
-      return error.cause?.err?.message
+      return error.cause?.err?.message + "!" + (new Date)
 
     }else if (error instanceof Error) {
       // console.log(error)
@@ -26,16 +26,85 @@ export async function authenticate( prevState: string | undefined, formData: For
         // console.log(error)
         redirect('/dashboard');
       }
-      return error.message; 
+      return error.message + "!" + (new Date); 
     } else {
-      return "An unknown error occurred";
+      return "An unknown error occurred"+ "!" + (new Date);
     }
   }
 }
 
+export async function otprequest( email: string )
+{
+
+  const formattedData = {
+    "email": email,
+  };
+  const validationResult = otprequestSchema.safeParse(formattedData);
+
+  if (!validationResult.success) {
+    const errorMessages = validationResult.error.issues.map(issue => issue.message);
+    console.log(errorMessages)
+    return errorMessages.join(', ')+ "!" + (new Date);
+  }
+  const apiEndpoint = `${process.env.BACKEND_URL}/user/generateEmailOTP`;
+
+  console.log("formatted data",formattedData, "\n api: ", apiEndpoint)
+  try {
+    const response = await axios.put(apiEndpoint, formattedData);
+    console.log(response.data.message);
+    return response.data.message + "!" + (new Date);
+  } catch (error) {
+    const message = handleAxiosError(error);
+    console.error(message);
+    return message + "!" + (new Date);
+  }
+  
+}
+
+export async function verifyotp( prevState: string | undefined, formData: FormData, )
+{
+  const formattedData = {
+    "email": formData.get('email'),
+    "otp": formData.get('OTP')
+  };
+  const validationResult = otprequestSchema.safeParse(formattedData);
+
+  if (!validationResult.success) {
+    const errorMessages = validationResult.error.issues.map(issue => issue.message);
+    console.log(errorMessages)
+    return errorMessages.join(', ')+ "!" + (new Date);
+  }
+  const apiEndpoint = `${process.env.BACKEND_URL}/user/verify/email`;
+
+  // console.log("formatted data",formattedData, "\n api: ", apiEndpoint)
+  try {
+    const response = await axios.put(apiEndpoint, formattedData);
+    console.log(response.data);
+    
+    if (response.data.success === true){
+      return 'redirect'
+    }
+    return response.data.message + "!" + (new Date);
+
+  } catch (error) {
+    const message = handleAxiosError(error);
+    // console.error(message);
+    return message + "!" + (new Date);
+  }
+  
+}
+
+
+
 
 export async function teacherRegister(prevState: string | undefined, formData: FormData)
 {
+
+  if (formData.get('password') !== formData.get('password2')){
+    console.log('dont match2')
+    return "passowrds dont match "+ "!" + (new Date);
+  }
+
   const formattedData = {
     "name": formData.get('name'),
     "email": formData.get('email'),
@@ -44,7 +113,10 @@ export async function teacherRegister(prevState: string | undefined, formData: F
     "locality": formData.get('coachingLocation'),
     "phone": formData.get('contact'),
     "qualification": formData.get("qualifications"),
-    "subjectTeaching": formData.get('subject')
+    "subjectTeaching": formData.get('subject'),
+    "password":formData.get('password'),
+    "teacherSpecializeFor":formData.get('specializefor'),
+    "teachingExperience":formData.get('teachingexperience')
   };
 
   const validationResult = teacherRegisterSchema.safeParse(formattedData);
@@ -52,7 +124,7 @@ export async function teacherRegister(prevState: string | undefined, formData: F
   if (!validationResult.success) {
     const errorMessages = validationResult.error.issues.map(issue => issue.message);
     console.log(errorMessages)
-    return errorMessages.join(', ');
+    return errorMessages.join(', ')+ "!" + (new Date);
   }
   // console.log(validationResult);
 
@@ -61,16 +133,22 @@ export async function teacherRegister(prevState: string | undefined, formData: F
   try {
     const response = await axios.post(apiEndpoint, formattedData);
     console.log(response.data);
-    return response.data.message ;
+    return response.data.message + "!" + (new Date);
   } catch (error) {
     const message = handleAxiosError(error);
     // console.error(message);
-    return message;
+    return message + "!" + (new Date);
   }
 }
 
 export async function studentRegister(prevState: string | undefined, formData: FormData) 
 {
+  // OTP send to you email 
+
+  if (formData.get('password') !== formData.get('password2')){
+    console.log('dont match2')
+    return "passowrds dont match "+ "!" + (new Date);
+  }
 
   const formattedData = {
     "email": formData.get('email'),
@@ -78,6 +156,7 @@ export async function studentRegister(prevState: string | undefined, formData: F
     "phoneNumber": formData.get('contact'),
     "currentClass": formData.get('class'),
     "reffralId": '4d2cbab33c4d',
+    "password": formData.get('password')
     };
 
   const validationResult = studentRegisterSchema.safeParse(formattedData);
@@ -85,7 +164,7 @@ export async function studentRegister(prevState: string | undefined, formData: F
   if (!validationResult.success) {
   const errorMessages = validationResult.error.issues.map(issue => issue.message);
   console.log(errorMessages)
-  return errorMessages.join(', ');
+  return errorMessages.join(', ') + "!" + (new Date);
   }
 
   const apiEndpoint = `${process.env.BACKEND_URL}/student/register`;
@@ -93,11 +172,11 @@ export async function studentRegister(prevState: string | undefined, formData: F
   try {
       const response = await axios.post(apiEndpoint, formattedData);
       // console.log(response.data);
-      return response.data.message;
+      return response.data.message + "!" + (new Date);
   } catch (error) {
     // console.log(error)
     const message = handleAxiosError(error);
-      return message;
+      return message + "!"+(new Date);
     }
 
 }

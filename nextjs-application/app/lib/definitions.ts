@@ -20,9 +20,18 @@ export const studentRegisterSchema = z.object({
       message: "Phone number must be a 10 digit number",
     }),
 
-  reffralId: z.string().min(1, "Name must be at least 1 character long")
-    .max(12, "Name must be no more than 50 characters long"),
+  reffralId: z.string().min(1, "reffral must be at least 1 character long")
+    .max(12, "reffral must be no more than 50 characters long"),
+
+  password: z.string()
+    .min(6,"password needs to be atleast 6 characters long")
+    .max(24,"password can not be larget than 24 characters")
 });
+
+export const otprequestSchema = z.object({
+  email: z.string().email(),
+  otp: z.string().optional()
+})
 
 export const teacherRegisterSchema = z.object({
   name: z.string().min(1, "Name must be at least 1 character long")
@@ -40,6 +49,15 @@ export const teacherRegisterSchema = z.object({
      }),
   qualification: z.string().min(1, "Qualification must be at least 1 character long").max(50, "Qualification must be no more than 50 characters long"),
   subjectTeaching: z.string().min(1, "Subject teaching must be at least 1 character long").max(50, "Subject teaching must be no more than 50 characters long"),
+  
+  password: z.string()
+    .min(6,"password needs to be atleast 6 characters long")
+    .max(24,"password can not be larget than 24 characters"),
+  teacherSpecializeFor: z.string().min(1, "qualifications must be at least 1 character long").max(50, "qualificaiton must be no more than 50 characters long"),
+  teachingExperience: z.string().min(0, "Teaching experience must be at least 0 years")
+  .max(100, "Teaching experience must be no more than 100 years").regex(/^\d+$/,"experience needs to be a number")
+  .transform(Number),
+
 });
 
  export interface userCredentials{
