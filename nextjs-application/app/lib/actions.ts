@@ -16,9 +16,12 @@ export async function authenticate( prevState: string | undefined, formData: For
     await signIn('credentials', formData);
 
   } catch (error) {
+    
     if (error instanceof AuthError) {
+
       console.log("the error: ", error.cause?.err)
       return error.cause?.err?.message + "!" + (new Date)
+
 
     }else if (error instanceof Error) {
       // console.log(error)
@@ -132,12 +135,13 @@ export async function teacherRegister(prevState: string | undefined, formData: F
 
   try {
     const response = await axios.post(apiEndpoint, formattedData);
-    console.log(response.data);
+    
     return response.data.message + "!" + (new Date);
   } catch (error) {
     const message = handleAxiosError(error);
-    // console.error(message);
+    
     return message + "!" + (new Date);
+
   }
 }
 

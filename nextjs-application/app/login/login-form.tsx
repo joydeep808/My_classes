@@ -11,16 +11,15 @@ import toast, { Toaster } from 'react-hot-toast';
 import { redirect } from 'next/navigation';
 
 
-
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [userType, setUserType] = useState('student');
+
   
-  
-  
+
 
   useEffect(() => {
     if (errorMessage) {
@@ -45,7 +44,6 @@ export default function LoginForm() {
   }, [errorMessage]);
 
 
-  
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -119,7 +117,7 @@ export default function LoginForm() {
       
       
 
-      <div
+      {/* <div
         className="flex h-8 items-end space-x-1"
         aria-live="polite"
         aria-atomic="true"
@@ -131,7 +129,7 @@ export default function LoginForm() {
             <p className="text-sm ">{errorMessage}</p> */}
           </>
         )}
-      </div>
+      </div> */}
 
     
     </form>
