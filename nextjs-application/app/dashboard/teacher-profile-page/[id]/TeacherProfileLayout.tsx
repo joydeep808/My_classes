@@ -8,6 +8,9 @@ import { number } from 'zod';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { HeartIcon } from '@heroicons/react/24/outline';
+import TeacherProfile from './teacher-profile/TeacherProfile';
+import { Teacher } from '../../find-teacher/ui/responseType';
+import TeacherDemo from './demo/Teacher';
 
 const profilePicture = '/profilePicture_demo.png';
 const profileBanner = '/profileBanner_demo.png';
@@ -39,22 +42,34 @@ const stars: {
       value: 5,
     }
   ]
-
-const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
-  const pathname = usePathname();
+  
+  
+  const TeacherProfileLayout = ({TeacherInfo}:{TeacherInfo:Teacher}) => {
+    const [currentPage , setCurrentPage] = useState(true)
+    const pathname = usePathname();
+    const SetPathProfile = (path:boolean)=>{
+      if(currentPage === true && path === true){
+        return;
+      }
+      if(currentPage === false && path === false)return;
+      if(currentPage === true && path === false)setCurrentPage(false)
+        if(currentPage === false && path === true)setCurrentPage(true)
+    }
   return (
     <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mx-[3vw]">
       <div className='col-span-2'>
         <div className="h-fit relative grid  rounded-2xl shadow-lg bg-slate-50">
           <Image
-            src={profileBanner}
+          width={20}
+          height={20}
+            src={TeacherInfo?.coverImage[0] ?TeacherInfo.coverImage[0] : profileBanner }
             alt="profile_banner"
             className=" aspect-auto h-[30vh] w-full object-cover rounded-2xl"
           />
           <div className="relative flex flex-col md:flex-row flex-wrap w-full md:items-center gap-4">
             <div className='w-full md:w-56 relative md:block md:static'>
               <Image
-                src={profilePicture}
+                src={TeacherInfo?.avatar ? TeacherInfo?.avatar :profilePicture}
                 alt=""
                 width={1000}
                 height={1000}
@@ -63,8 +78,10 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
             </div>
             <div className=" bg-slate-50 flex-col md:w-auto md:self-end flex md:flex-row justify-between items-center flex-1 mb-4 text-2xl lg:text-4xl p-2 m-4">
               <div className='w-full md:w-auto'>
-                <h1 className="font-bold">Name of teacher</h1>
-                <p className='text-base'>Subject teaching</p>
+                <h1 className="font-bold">{TeacherInfo.Teachers.name}</h1>
+                {TeacherInfo.subjectTeaching.map((item , index)=>(
+                  <p key={index} className='text-base'>{item}</p>
+                ))}
                 <div className='flex text-base text-white bg-violet-700 w-fit px-2 my-2 rounded-full gap-2 '>
                   <span>4.7</span> <StarIcon className='w-4' />
                 </div>
@@ -85,8 +102,8 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
           <div>
             <div className='items-center border-b-2 border-violet-600 flex justify-between mt-4 text-lg rounded-lg'>
               <div className='flex'>
-                <Link href={profilePath} className={clsx('bg-gradient-to-t  p-4 hover:from-violet-500/30', { 'from-violet-500/20': pathname == profilePath })}>Profile</Link>
-                <Link href={demoPath} className={clsx('bg-gradient-to-t  p-4 hover:from-violet-500/30', { 'from-violet-500/20': pathname == demoPath })}>Demo Class</Link>
+                <button onClick={()=>SetPathProfile(true)} className={clsx('bg-gradient-to-t  p-4 hover:from-violet-500/30', { 'from-violet-500/20': pathname == profilePath })}>Profile</button>
+                <button onClick={()=>SetPathProfile(false)} className={clsx('bg-gradient-to-t  p-4 hover:from-violet-500/30', { 'from-violet-500/20': pathname == demoPath })}>Demo Class</button>
               </div>
               <Button className='bg-transparent hover:bg-transparent active:bg-transparent'>
                 <HeartIcon className='w-8 m-4 text-slate-400 cursor-pointer transition-all hover:text-violet-500' />
@@ -94,29 +111,29 @@ const TeacherProfileLayout = ({ children }: { children: React.ReactNode }) => {
             </div>
           </div>
         </div>
-        {children}
+       {currentPage === true ?  <TeacherProfile  Education={TeacherInfo.qualification} Experience={TeacherInfo.qualification}/> :<TeacherDemo></TeacherDemo>}
       </div>
       <div className="col-span-full lg:col-auto h-fit w-full bg-slate-50 rounded-2xl p-6 shadow-xl flex flex-col  gap-4">
         <div className=''>
-          <h1 className='text-gray-800 text-3xl font-bold border-b-2 border-gray-200'>Contact Details</h1>
+          <h1 className='text-gray-800 text-3xl font-bold border-b-2 border-gray-200'>{TeacherInfo.Teachers.phoneNumber}</h1>
           <div className='grid gap-4 p-4'>
             <p className='grid grid-cols-1'>
               <span className='font-semibold text-xl'>
-                1566198789415-example
+                
               </span>
               <span className='text-slate-400'>
                 Phone No.
               </span>
             </p>
             <p className='grid grid-cols-1'>
-              <a href="https://example@gmail.com" target='_blank' className='font-semibold text-xl'>example@gmail.com</a>
+              <a href="https://example@gmail.com" target='_blank' className='font-semibold text-xl'>{TeacherInfo.Teachers.email}</a>
               <span className='text-slate-400'>
                 Email
               </span>
             </p>
             <p className='grid grid-cols-1'>
               <span className='font-semibold text-xl'>
-                XYZ classes, sample city, state, country
+              {TeacherInfo.completeAddress}
               </span>
               <span className='text-slate-400'>
                 Location

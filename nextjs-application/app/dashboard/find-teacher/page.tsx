@@ -10,37 +10,52 @@ import Link from 'next/link';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
 
+} from "@/components/ui/select"
 import FindProfileCard from './ui/find-profileCard';
+import { Input } from "@/components/ui/input"
 
+import dotenv from 'dotenv'
+import { useStore } from '@/app/StateManagement/Management';
+dotenv.config({
+  path:"@/.env"
+})
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [searchResults, setSearchResults] = useState<Teacher[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [allTeachers, setAllTeachers] = useState<Teacher[]>([]);
   const profileImg = '/default_profile.svg';
-
+  const {Teachers ,addTeacher , alradyFetchedTeacher ,changeAlradyFetchedTeacher} = useStore()
+  let value= 0
   useEffect(() => {
     async function fetchTeachers() {
+      if(alradyFetchedTeacher === true || value !== 0)return;
       setLoading(true);
       const apiEndpoint =
-        `${process.env.BACKEND_URL}/student/showTeachers`;
+        `http://localhost:3001/api/v1/student/showTeachers`;
 
       try {
         const response = await axios.get(apiEndpoint);
-        console.log('the data');
-        console.log(response.data.data);
-        setAllTeachers(response.data.data);
-      } catch (error) {
-        const message = handleAxiosError(error);
-        console.log(message);
-      } finally {
-        setLoading(false);
-      }
+      await addTeacher(response.data.data)
+      await changeAlradyFetchedTeacher()
+    } catch (error) {
+      const message = handleAxiosError(error);
+    } finally {
+      setLoading(false);
     }
-
-    fetchTeachers();
-  }, []);
+  }
+  fetchTeachers();
+  ++value
+}, []);
 
 
   return (
@@ -65,11 +80,33 @@ export default function Page() {
       </div> */}
 
       <h1 className="m-4 text-center text-4xl font-bold">Our Teachers</h1>
+      <div className='flex items-center justify-around sm:gap-20  gap-4 px-4' >
+       <Select>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Select a fruit" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>Fruits</SelectLabel>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="banana">Banana</SelectItem>
+          <SelectItem value="blueberry">Blueberry</SelectItem>
+          <SelectItem value="grapes">Grapes</SelectItem>
+          <SelectItem value="pineapple">Pineapple</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+<Input />
+          </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
         {loading ? (
           <p>Loading...</p>
         ) : (
-          allTeachers.map((teacher, index) => (
+          <>
+        
+
+          {
+          Teachers.map((teacher, index) => (
             <div
               key={index}
               className=" hover: ease-linea m-4 flex items-center justify-between rounded-lg bg-gradient-to-br from-slate-100 to-slate-200 p-4 shadow-lg transition-all hover:shadow-xl"
@@ -83,20 +120,23 @@ export default function Page() {
               />
               <div className="flex flex-1 flex-col text-center">
                 <h2 className="px-2 text-base font-bold md:text-xl">
-                  {teacher.TeacherInfo.name}
+                  {teacher.Teachers.name}
                 </h2>
                 <p>{teacher.subjectTeaching}</p>
               </div>
               <div>
-                <Link href="/dashboard/teacher-profile-page">
+                <Link href={`/dashboard/teacher-profile-page/${teacher.teacherId}`}>
                   <button>
                     <ArrowRightCircleIcon className="w-10 text-violet-700 transition-all ease-linear hover:text-violet-400 md:w-7 hover:translate-x-0.5" />
                   </button>
                 </Link>
               </div>
             </div>
-          ))
-        )}
+          ))}
+          </>
+        )
+        
+        }
 
       </div>
       <div>{/* page numbers */}</div>
