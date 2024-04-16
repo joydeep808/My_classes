@@ -68,3 +68,13 @@ input[type='number']::-webkit-outer-spin-button {
     opacity: 100%;
   }
 }
+
+.scrollToTopButton {
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.scrollToTopButton.visible {
+  opacity: 1;
+}

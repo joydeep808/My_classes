@@ -1,6 +1,7 @@
 import { MyClassLogoBlack } from "./myclass-logo";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -18,13 +19,13 @@ export default function Footer() {
                 <div className="mt-4 md:m-0">
                     <nav className="list-none flex gap-6 md:gap-16 justify-evenly">
 
-                        <a className="text-gray-600 hover:text-gray-800">T&C</a>
+                        <Link href={"/dashboard/terms"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">T&C</Link>
 
-                        <a className="text-gray-600 hover:text-gray-800">Contact us</a>
+                        <Link href={"/dashboard/contact-us"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">Contact us</Link>
 
-                        <a className="text-gray-600 hover:text-gray-800">About us</a>
+                        <Link href={"/dashboard/terms"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">About us</Link>
 
-                        <a className="text-gray-600 hover:text-gray-800">Feedback</a>
+                        <Link href={"/dashboard/terms"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">Feedback</Link>
 
                     </nav>
                 </div>
