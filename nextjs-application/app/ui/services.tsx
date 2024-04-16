@@ -11,21 +11,26 @@ export default function Services(){
           Our Services</strong>
 
 
-        <div className='flex justify-evenly flex-wrap gap-6 md:gap-8 p-2 w-screen '>
 
+        <div className='flex justify-evenly flex-wrap gap-6 md:gap-8 p-2 w-screen '>
+          
           {servicesList.map((item) => {
             return(
 
-//               <Link key={item.name} href={item.href} className=' hover:shadow-2xl relative flex flex-col shadow-lg rounded-3xl h-auto transition-all ease-linear items-center p-1 hover:scale-105 bg-white overflow-hidden' >
-//               <Image src={item.imagesrc}  width={100} height={100} className='w-40 h-40 mx-3' alt={item.name} ></Image>
-//               <span className='font-bold text-sm p-2'>{item.name}</span>
+//               <Link key={item.name} href={item.href} className=' hover:shadow-2xl relative flex flex-col 
+//                  shadow-lg rounded-3xl h-auto transition-all ease-linear items-center p-1 hover:scale-105 
+//                bg-white overflow-hidden' >
+//                  <Image src={item.imagesrc}  width={100} height={100} className='w-40 h-40 mx-3' alt={item.name} ></Image>
+//                  <span className='font-bold text-sm p-2'>{item.name}</span>
+                 
+
 
               <Link key={item.name} href={item.href} className=' hover:shadow-2xl relative flex flex-col w-48
               shadow-lg rounded-3xl h-auto transition-all ease-in items-center hover:scale-105' >
               <Image src={item.imagesrc}  width={100} height={100} className='w-48 h-40 mx-3' alt={item.name} ></Image>
               <span className='font-bold text-sm p-2 text-center'>{item.name}
               </span>
-
+        
               </Link>
             )
           })}
