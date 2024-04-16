@@ -10,7 +10,7 @@ export default function Batches(){
             <div className='flex  flex-col flex-wrap md:flex-row  w-screen justify-evenly'>
               {batchList.map((batches) => (
                 <Link key={batches.name} href={batches.href} className='p-4 m-2 shadow-lg rounded-2xl
-                  transition-all ease-in hover:scale-[1.02] hover:shadow-2xl bg-gradient-to-b from-slate-200 to-indigo-500/50 border-none border hover:border-indigo-700/50'>
+                  transition-all ease-in hover:scale-[1.02] hover:shadow-2xl bg-gradient-to-b from-slate-50 to-indigo-200 border-none border hover:border-indigo-700 hover:border-solid'>
                   <strong className=' text-xl'>{batches.name}</strong>
                   
                   <div className='flex justify-center'>

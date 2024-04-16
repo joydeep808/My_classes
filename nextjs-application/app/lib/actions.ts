@@ -209,3 +209,8 @@ export async function fetchTeachers(){
 export async function signUserOut(){
   await signOut();
 }
+
+export async function backendFetch() {
+  return process.env.BACKEND_URL;
+  
+}
