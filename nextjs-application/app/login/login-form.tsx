@@ -125,8 +125,8 @@ export default function LoginForm() {
         {errorMessage && (
           <>
             <Toaster/>
-            {/* <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
-            <p className="text-sm ">{errorMessage}</p> */}
+            <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
+            <p className="text-sm ">{errorMessage}</p>
           </>
         )}
       </div> 
