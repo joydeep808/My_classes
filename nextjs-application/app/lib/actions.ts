@@ -60,7 +60,7 @@ export async function otprequest( email: string )
   } catch (error) {
     const message = handleAxiosError(error);
     console.log(message);
-    return message + "!3" + (new Date);
+    return message + "!" + (new Date);
   }
   
 }
