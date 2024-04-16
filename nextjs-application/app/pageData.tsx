@@ -10,9 +10,9 @@ export const servicesList = [
 ];
 
 export const batchList = [
-    {name: "NEET" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
-    {name: "JEE" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
-    {name: "School" , href: "./dashboard" , classes: ['class XI','class XII','dropper']},
+    {name: "NEET" , href: "./dashboard" , classes: ['class XI','class XII','Dropper']},
+    {name: "JEE" , href: "./dashboard" , classes: ['class XI','class XII','Dropper']},
+    {name: "School" , href: "./dashboard" , classes: ['class XI','class XII','Dropper']},
 
 ];
 
