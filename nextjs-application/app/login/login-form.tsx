@@ -24,21 +24,28 @@ export default function LoginForm() {
   useEffect(() => {
     if (errorMessage) {
       toast.error(errorMessage.split('!')[0]);
+      //console.log(errorMessage)
 
       if (errorMessage.split('!')[0] === "Please verify your email") {
-        otprequest(email)
-        .then((mess) => {
+        
+        Cookie.remove('userEmail', { path: '/' });
+        otprequest(email).then((mess) => {
           toast.error(mess.split('!')[0]);
+          //console.log(mess)
+
+          if (mess.split('!')[0] === "OTP send " ){
+            Cookie.set('userEmail', email, { expires: 1, path: '/' });
+          }
           
-          
-          
-          Cookie.set('userEmail', email, { expires: 1, path: '/' });
-          redirect('./login/Mail-otp');
         })
         .catch((error) => {
           // Handle any errors that occur during the otprequest
           console.error("Error in otprequest:", error);
         });
+        if(Cookie.get('userEmail')){
+          redirect('login/Mail-otp');
+        }
+        
       }
     }
   }, [errorMessage]);
@@ -117,19 +124,7 @@ export default function LoginForm() {
       
       
 
-       <div
-        className="flex h-8 items-end space-x-1"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {errorMessage && (
-          <>
-            <Toaster/>
-            <ExclamationCircleIcon className="h-5 w-5 text-orange-500" />
-            <p className="text-sm ">{errorMessage}</p>
-          </>
-        )}
-      </div> 
+      
 
     
     </form>

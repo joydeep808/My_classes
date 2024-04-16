@@ -33,7 +33,7 @@ export default function Page() {
             setEmail(userEmail);
         } else {
             toast("No email found in cookies, redirecting back to login.");
-            redirect('./login');
+            redirect('../login');
         }
       }, [email]);
 
@@ -50,8 +50,8 @@ export default function Page() {
       <div className="flex items-center h-screen justify-center flex-col">
       <form  action={dispatch} className="flex gap-1  flex-col w-full px-6 max-w-[600px] mx-2 pb-40">
 
-        <strong className="  text-4xl font-normal my-3 py-2 z-10 text-center">
-        an OTP has been sent to {email}, confirm your email, enter your OTP
+        <strong className="  text-xl font-semibold my-3 py-2 z-10 text-center">
+        OTP sent to {email}
         </strong >
 
         <div className="relative border-0" >

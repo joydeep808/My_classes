@@ -51,15 +51,16 @@ export async function otprequest( email: string )
   }
   const apiEndpoint = `${process.env.BACKEND_URL}/user/generateEmailOTP`;
 
-  console.log("formatted data",formattedData, "\n api: ", apiEndpoint)
+  // console.log("formatted data",formattedData, "\n api: ", apiEndpoint)
   try {
+    console.log('request done')
     const response = await axios.put(apiEndpoint, formattedData);
-    console.log(response.data.message);
+    console.log("response", response);
     return response.data.message + "!" + (new Date);
   } catch (error) {
     const message = handleAxiosError(error);
-    console.error(message);
-    return message + "!" + (new Date);
+    console.log(message);
+    return message + "!3" + (new Date);
   }
   
 }
