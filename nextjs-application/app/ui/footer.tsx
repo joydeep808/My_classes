@@ -23,9 +23,9 @@ export default function Footer() {
 
                         <Link href={"/dashboard/contact-us"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">Contact us</Link>
 
-                        <Link href={"/dashboard/terms"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">About us</Link>
+                        <Link href={"/dashboard/about-us"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">About us</Link>
 
-                        <Link href={"/dashboard/terms"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">Feedback</Link>
+                        <Link href={"/dashboard/feedback"} className="text-gray-600 hover:text-indigo-800 cursor-pointer">Feedback</Link>
 
                     </nav>
                 </div>

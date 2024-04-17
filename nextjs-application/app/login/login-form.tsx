@@ -29,7 +29,7 @@ export default function LoginForm() {
       if (errorMessage.split('!')[0] === "Please verify your email") {
         
         Cookie.remove('userEmail', { path: '/' });
-        otprequest(email).then((mess) => {
+        otprequest(email).then((mess: string) => {
           toast.error(mess.split('!')[0]);
           //console.log(mess)
 
