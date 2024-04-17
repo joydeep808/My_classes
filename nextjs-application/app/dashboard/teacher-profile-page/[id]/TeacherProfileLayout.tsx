@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { HeartIcon } from '@heroicons/react/24/outline';
 import TeacherProfile from './teacher-profile/TeacherProfile';
-import { Teacher } from '../../find-teacher/ui/responseType';
+import { Teacher } from '@/app/dashboard/find-teacher/ui/responseType';
 import TeacherDemo from './demo/Teacher';
 
 const profilePicture = '/profilePicture_demo.png';
@@ -15,51 +15,30 @@ const profileBanner = '/profileBanner_demo.png';
 const profilePath = '/dashboard/teacher-profile-page/teacher-profile'
 const demoPath = '/dashboard/teacher-profile-page/demo'
 
-const stars: {
-  name: string,
-  value: number,
-}[] = [
-    {
-      name: "star1",
-      value: 1,
-    },
-    {
-      name: "star2",
-      value: 2,
-    },
-    {
-      name: "star3",
-      value: 3,
-    },
-    {
-      name: "star4",
-      value: 4, 
-    },
-    {
-      name: "star5",
-      value: 5,
-    }
-  ]
+const stars = [ 
+  { name: "star1", value: 1, },
+  { name: "star2", value: 2, },
+  { name: "star3", value: 3, },
+  { name: "star4", value: 4, },
+  { name: "star5", value: 5, }]
   
   
-  const TeacherProfileLayout = ({TeacherInfo}:{TeacherInfo:Teacher}) => {
-    const [currentPage , setCurrentPage] = useState(true)
-    const pathname = usePathname();
-    const SetPathProfile = (path:boolean)=>{
-      if(currentPage === true && path === true){
-        return;
-      }
-      if(currentPage === false && path === false)return;
-      if(currentPage === true && path === false)setCurrentPage(false)
-        if(currentPage === false && path === true)setCurrentPage(true)
+const TeacherProfileLayout = ({TeacherInfo}:{TeacherInfo:Teacher}) => {
+  const [currentPage , setCurrentPage] = useState(true)
+  const pathname = usePathname();
+  const SetPathProfile = (path:boolean)=>{
+    if(currentPage === true && path === true){
+      return;
     }
+    if(currentPage === false && path === false)return;
+    if(currentPage === true && path === false)setCurrentPage(false)
+      if(currentPage === false && path === true)setCurrentPage(true)
+  }
   return (
     <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mx-[3vw]">
       <div className='col-span-2'>
         <div className="h-fit relative grid  rounded-2xl shadow-lg bg-slate-50">
-          <Image
-          width={20}
-          height={20}
+          <Image width={20} height={20}
             src={TeacherInfo?.coverImage[0] ?TeacherInfo.coverImage[0] : profileBanner }
             alt="profile_banner"
             className=" aspect-auto h-[30vh] w-full object-cover rounded-2xl"
@@ -68,7 +47,7 @@ const stars: {
             <div className='w-full md:w-56 relative md:block md:static'>
               <Image
                 src={TeacherInfo?.avatar ? TeacherInfo?.avatar :profilePicture}
-                alt=""
+                alt="teacher avatar"
                 width={1000}
                 height={1000}
                 className="absolute left-0 bottom-0 md:bottom-0 m-4 aspect-square w-28 md:w-44 lg:w-56 rounded-full object-cover border-white border-[10px] drop-shadow-xl "
@@ -109,7 +88,7 @@ const stars: {
             </div>
           </div>
         </div>
-       {currentPage === true ?  <TeacherProfile  Education={TeacherInfo.qualification} Experience={TeacherInfo.qualification}/> :<TeacherDemo video=""></TeacherDemo>}
+        {currentPage === true ?  <TeacherProfile  Education={TeacherInfo.qualification} Experience={TeacherInfo.qualification}/> :<TeacherDemo video=""></TeacherDemo>}
       </div>
       <div className="col-span-full lg:col-auto h-fit w-full bg-slate-50 rounded-2xl p-6 shadow-xl flex flex-col  gap-4">
         <div className=''>
@@ -124,7 +103,7 @@ const stars: {
               </span>
             </p>
             <p className='grid grid-cols-1'>
-              <a href="https://example@gmail.com" target='_blank' className='font-semibold text-xl'>{TeacherInfo.Teachers.email}</a>
+              <p className='font-semibold text-xl'>{TeacherInfo.Teachers.email}</p>
               <span className='text-slate-400'>
                 Email
               </span>

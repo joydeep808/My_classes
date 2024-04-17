@@ -96,7 +96,7 @@ export default function Page() {
               />
               <div className="flex flex-1 flex-col text-center">
                 <h2 className="px-2 text-base font-bold md:text-xl">
-                  {teacher.name}
+                  {teacher.Teachers.name}
                 </h2>
                 <p>{teacher.subjectTeaching}</p>
               </div>

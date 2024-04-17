@@ -1,5 +1,5 @@
 // types.ts
-export interface Teacher {
+export interface TeacherExtra {
     _id: string;
     name: string;
     email: string;
@@ -22,11 +22,12 @@ export interface Teacher {
     locality: string;
     completeAddress: string;
     status: string;
+    avatar: string;
+    coverImage: string[]
     createdAt: string;
     updatedAt: string;
-    __v: string;
-    Teachers: Teacher[];
-    TeacherInfo: TeacherInfo;
+    Teachers: TeacherExtra;
+    
   }
   
   export interface ApiResponse {

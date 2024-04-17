@@ -37,8 +37,7 @@ export default function Page({params}:{params:{id:string}}){
     },[params.id])
     return (
         <div>
-            {teacherDetails && <TeacherProfileLayout TeacherInfo={teacherDetails}>
-            </TeacherProfileLayout>}
+            {teacherDetails && <TeacherProfileLayout TeacherInfo={teacherDetails}/> }
         </div>
     )
 }
