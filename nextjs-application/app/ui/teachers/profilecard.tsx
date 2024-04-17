@@ -19,7 +19,7 @@ const ProfileCard: React.FC<ProfileProps> = ({
 
  }) => {
   return (
-    <div className="flex flex-col items-center  p-4 w-72 md:w-fit">
+    <div className="flex flex-col items-center  p-4 w-72 md:w-[25rem]">
       <div className=" flex items-center mx-auto">
         <Image className='rounded-full w-14' src={pictureSrc} width={100} height={100} alt='profile picture' />
       </div>
