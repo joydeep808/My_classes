@@ -21,20 +21,22 @@ export default function Page(){
                     alt='doubt solving page hero' />
 
                     <p className="font-medium text-2xl relative left-16 md:px-8">
-                        my classes and it&#39s team of faculty, <br/>
+                        my classes and it &#39; s team of faculty, <br/>
                         is here to help you with your doubts and problems 
-                        anytime, throught it&#39s communities <br></br><br></br>
+                        anytime, throught it &#39; s communities <br/><br/>
 
-                        my classes and it&#39s team of faculty, <br/>
+                        my classes and it&#39;s team of faculty, <br/>
                         is here to help you with your doubts and problems 
-                        anytime, throught it&#39s communities<br></br><br></br>
+                        anytime, throught it&#39;s communities<br/><br/>
 
                         
 
 
                     </p>
                 </div>
+                
             </div>
+            
 
             <div className=" flex flex-col font-medium  text-2xl m-8 gap-2">
                 {linkLists.map((item) => (

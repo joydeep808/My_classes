@@ -188,7 +188,8 @@ export async function studentRegister(prevState: string | undefined, formData: F
 
 export async function userdata() {
   const data = await auth();
-  // console.log(data)
+  console.log(data) 
+  
 
   return data;
 }
