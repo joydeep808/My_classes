@@ -8,13 +8,11 @@ import { signUserOut } from '@/app/lib/actions';
 import { PowerIcon } from '@heroicons/react/24/outline';
 
 const contentlist = [
-    // {name:'dashboard', href:''},
+    
     // {name:'Payment', href:''},
-    // {name:'Teachers & Mentors', href:''},
-    { name: 'Settings', href: '' },
-    // {name:'Help & feedback', href:''},
-    // {name:'About', href:''},
-    // {name:'T&C', href:''},
+    
+    { name: 'change profile picture', href: './profile/profilePic' },
+    
 ];
 
 export default function ProfilePage() {
@@ -41,12 +39,13 @@ export default function ProfilePage() {
 
             <div className='flex flex-col gap-10 justify-center p-10 items-center'>
                 <div className='flex items-center justify-center flex-col gap-4'>
-                    {contentlist.map((cont, index) => (
-                        <Link href={cont.href} key={index}
+                    {contentlist.map((item, index) => (
+                        <Link href={item.href} key={index}
+                            className="flex justify-center rounded-sm w-max mx-4 items-center">
 
-                            className="flex justify-center rounded-sm w-full mx-4 items-center">
-                            <span className=' w-28 p-3 hover:bg-indigo-700 hover:text-white transition-all ease-linear rounded-full hover:shadow-xl duration-100 bg-slate-700/70 text-white  text-center'>
-                                {cont.name}
+                            <span className=' p-1 rounded-md bg-slate-700/60 text-white  text-center
+                            hover:bg-indigo-700 hover:text-white transition-all ease-linear duration-100 hover:shadow-xl  '>
+                                {item.name}
                             </span>
                         </Link>
                     ))}
