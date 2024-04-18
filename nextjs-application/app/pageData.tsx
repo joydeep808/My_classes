@@ -1,12 +1,12 @@
 
 export const servicesList = [
-    {name: 'Dedicated doubt solving', href: './dashboard', imagesrc: '/Doubt.svg',},
-    {name: 'Mentorship sessions', href: './dashboard', imagesrc: '/Mentorship.svg',},
-    {name: 'Progress tracking', href: './dashboard', imagesrc: '/Progress.svg',},
-    {name: 'Notes and course materials', href: './dashboard', imagesrc: '/Notes.svg',},
-    {name: 'Test series', href: './dashboard', imagesrc: '/Test series.svg',},
-    {name: 'Career consultation', href: './dashboard', imagesrc: '/Consultations.svg',},
-    {name: 'Free entrance preperation', href: './dashboard', imagesrc: '/Mentorship.svg',}
+    {name: 'Dedicated doubt solving', href: './dashboard/doubt-solving', imagesrc: '/Doubt.svg',},
+    {name: 'Mentorship sessions', href: './dashboard/mentorship', imagesrc: '/Mentorship.svg',},
+    {name: 'Progress tracking', href: './dashboard/progress', imagesrc: '/Progress.svg',},
+    {name: 'Notes and course materials', href: './dashboard/notes', imagesrc: '/Notes.svg',},
+    {name: 'Test series', href: './dashboard/tests', imagesrc: '/Test series.svg',},
+    {name: 'Career consultation', href: './dashboard/career-consultation', imagesrc: '/Consultations.svg',},
+    {name: 'Free entrance preperation', href: './dashboard/entrance-prep', imagesrc: '/Mentorship.svg',}
 ];
 
 export const batchList = [

@@ -26,6 +26,8 @@ export default function Page() {
         {/* <Performance  score={90} maxScore={100} circleRadius={85} stroke={20}/> */}
         <ProfileList/>
         <Services/>
+        
+        
         <Batches/>
         <Toaster/>
         

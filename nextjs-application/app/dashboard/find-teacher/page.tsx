@@ -73,7 +73,7 @@ export default function Page() {
           Teachers.map((teacher, index) => (
             <Link href={`/dashboard/teacher-profile-page/${teacher.teacherId}`} key={index}
             className="  flex  items-center justify-evenly rounded-xl shadow-md self-center
-             border-solid border-2 border-gray-200 bg-gray-50 w-10/12 h-60
+             border-solid border-2 border-gray-200 bg-white w-10/12 h-60
 
             transition-all ease-in delay-500 duration-200 hover:scale-150 hover:w-6/12  
                
