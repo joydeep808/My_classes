@@ -24,7 +24,7 @@ export default function Page(){
                     
                     
                     Navigating the competitive landscape of entrance exams can be daunting,
-                     but with My Classes Tripura by your side, you don't have to go it alone.<br/><br/>
+                     but with My Classes Tripura by your side, you don&#39;t have to go it alone.<br/><br/>
                      
                     Our team of experienced educators offers expert guidance and support to help 
                     students prepare effectively for entrance exams in their chosen field. <br/><br/>
@@ -36,7 +36,7 @@ export default function Page(){
                      
 
 
-                    <span className="hidden xl:block"> <br/>Whether you're aiming for engineering, medicine, or any other competitive field, our free 
+                    <span className="hidden xl:block"> <br/>Whether you&#39;re aiming for engineering, medicine, or any other competitive field, our free 
                     entrance guidance services are designed to equip you with the knowledge, skills, and 
                     confidence to excel on exam day and beyond.</span>
                     </p>
@@ -61,7 +61,7 @@ export default function Page(){
             </div>
 
             <p className="font-medium text-xl m-16 md:text-2xl  md:px-8  ">
-                <span className="block xl:hidden">Whether you're aiming for engineering, medicine, or any other competitive field, our free 
+                <span className="block xl:hidden">Whether you&#39;re aiming for engineering, medicine, or any other competitive field, our free 
                     entrance guidance services are designed to equip you with the knowledge, skills, and 
                     confidence to excel on exam day and beyond.</span>
 

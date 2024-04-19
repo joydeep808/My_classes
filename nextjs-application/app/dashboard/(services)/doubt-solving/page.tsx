@@ -22,13 +22,13 @@ export default function Page(){
 
                     <p className="font-medium text-xl md:text-2xl relative left-16 md:left-24 md:px-8 md:-top-16 ">
                     At My Classes Tripura, we believe that no question should go unanswered.<br/><br/>
-                    That's why we offer a dedicated doubt-solving service staffed by a team
+                    That&#39;s why we offer a dedicated doubt-solving service staffed by a team
                     of experienced teachers who are passionate about helping students succeed.<br/><br/>
                     
 
 
                     <span className="hidden xl:block">
-                    Whether you're grappling with a tricky math problem, puzzling over a scientific concept,
+                    Whether you&#39;re grappling with a tricky math problem, puzzling over a scientific concept,
                      or seeking clarification on a literary text, our experts are here to provide
                       personalized guidance and support.<br/><br/>  
                     Through one-on-one interactions, detailed explanations, and targeted assistance,
@@ -49,7 +49,7 @@ export default function Page(){
   
             <p className="font-medium text-xl m-16 md:text-2xl  md:px-8  ">
                 <span className="block xl:hidden">
-                    Whether you're grappling with a tricky math problem, puzzling over a scientific concept,
+                    Whether you&#39;re grappling with a tricky math problem, puzzling over a scientific concept,
                     or seeking clarification on a literary text, our experts are here to provide
                     personalized guidance and support.<br/><br/>  
                     Through one-on-one interactions, detailed explanations, and targeted assistance,

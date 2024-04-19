@@ -28,7 +28,7 @@ export default function Page(){
                     <p className="font-medium text-xl md:text-2xl relative left-16 md:left-24 md:px-8 md:-top-16 ">
                     At My Classes Tripura, we believe in the power of data-driven insights to inform and empower students
                     on their learning journey.<br/><br/>
-                    That's why we provide a robust progress tracking system that allows students to
+                    That&#39;s why we provide a robust progress tracking system that allows students to
                     monitor their performance across multiple tests and assessments.<br/><br/>
                         
                     <span className="hidden xl:block">
