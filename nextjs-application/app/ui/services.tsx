@@ -7,7 +7,7 @@ export default function Services(){
     return(
         <div className="mt-4 flex flex-col gap-2 items-center justify-center p-1 md:w-screen   ">
         
-        <strong className='font-extrabold text-2xl'>
+        <strong className='font-extrabold text-3xl md:text-4xl'>
           Our Services</strong>
 
         <div className='flex justify-evenly flex-wrap gap-6 md:gap-8 p-2 w-screen '>

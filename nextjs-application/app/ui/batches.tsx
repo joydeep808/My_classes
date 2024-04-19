@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 export default function Batches(){
     return(
-        <div className="flex flex-col  gap-4 items-center  justify-center  md:w-screen  md:py-6 my-3" >
+        <div className="flex flex-col  gap-4 items-center  justify-center  md:w-screen  md:py-6 my-3 mb-0 bg-[url(/waves.svg)] bg-cover" >
 
-          <strong className='font-extrabold text-2xl'>
+          <strong className='font-extrabold text-3xl md:text-4xl m-4'>
             Batches</strong>
 
           <div className='flex  justify-evenly flex-wrap  gap-6 md:gap-8 p-2 w-screen  '>
