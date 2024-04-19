@@ -13,14 +13,17 @@ export default function Page(){
 
     return(
         <div className="flex flex-col  bg-gray-200 p-4">
-            <div className="flex flex-col  w-10/12 bg-white rounded-full md:rounded-2xl">
-                <span className="flex font-bold text-5xl md:ml-10">Test<br/> Series</span>
+
+            <div className="flex flex-col w-full lg:w-10/12 bg-white rounded-3xl md:rounded-2xl">
+                <span className="flex font-bold text-3xl sm:text-5xl md:ml-10 bg-gradient-to-b from-indigo-500 to-indigo-700 text-slate-50 p-4 rounded-bl-2xl">Tests <br/>Series</span>
+
             
-                <div className="flex flex-col md:flex-row">
-                    <Image src='/Test series.svg'  width={200} height={200} className=' w-[20rem] lg:w-[35rem] relative left-16 mb-8'
+                <div className="flex flex-col md:flex-row py-8 items-center">
+                    <Image src='/Test series.svg'  width={200} height={200} className='w-[15rem] md:w-[20rem] lg:w-[35rem] mb-8'
                     alt='doubt solving page hero' />
 
-                    <p className="font-medium text-xl md:text-2xl relative left-16 md:left-24 md:px-8 md:-top-16 ">
+
+                    <p className="font-medium text-xl sm:text-2xl px-10 md:px-8">
                     
                     
                     Preparation is key to success in any academic endeavor,
@@ -33,6 +36,7 @@ export default function Page(){
                      Each test is carefully curated by our team of educators to ensure relevance, accuracy, 
                      and educational value. <br/><br/>
                      
+
 
 
                     <span className="hidden xl:block">By participating in our free test series, students can hone their exam-taking skills, 

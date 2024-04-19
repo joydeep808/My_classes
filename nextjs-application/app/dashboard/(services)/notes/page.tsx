@@ -13,14 +13,14 @@ export default function Page(){
 
     return(
         <div className="flex flex-col  bg-gray-200 p-4">
-            <div className="flex flex-col  w-10/12 bg-white rounded-full md:rounded-2xl">
-                <span className="flex font-bold text-5xl md:ml-10">Notes <br/>And <br/>Materials</span>
+            <div className="flex flex-col w-full lg:w-10/12 bg-white rounded-3xl md:rounded-2xl">
+                <span className="flex font-bold text-3xl sm:text-5xl md:ml-10 bg-gradient-to-b from-indigo-500 to-indigo-700 text-slate-50 p-4 rounded-bl-2xl">Notes <br/>And <br/>Materials</span>
             
-                <div className="flex flex-col md:flex-row">
-                    <Image src='/Notes.svg'  width={200} height={200} className=' w-[20rem] lg:w-[35rem] relative left-16 mb-8'
+                <div className="flex flex-col md:flex-row py-8 items-center">
+                    <Image src='/Notes.svg'  width={200} height={200} className='w-[15rem] md:w-[20rem] lg:w-[25rem] mb-8'
                     alt='doubt solving page hero' />
 
-                    <p className="font-medium text-xl md:text-2xl relative left-16 md:left-24 md:px-8 md:-top-16 ">
+                    <p className="font-medium text-xl sm:text-2xl px-10 md:px-8">
                     At My Classes Tripura, we recognize that access to high-quality 
                     study materials is crucial for academic success. <br/><br/>
                     That&#39;s why we&#39;re proud to offer a diverse range of meticulously crafted notes,
@@ -31,6 +31,7 @@ export default function Page(){
                        comprehension and retention.<br/><br/> Whether you&#39;re studying for exams, seeking clarification
                         on complex concepts, or simply looking to enhance your understanding, our free notes are
                          here to support you every step of the way.</span>
+
                     </p>
                 </div>
             </div>
