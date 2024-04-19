@@ -4,11 +4,11 @@ import Link from "next/link"
 export default function Page(){
 
     const linkLists = [
-        {name: "note1" , href: "link", description: "the one group"},
-        {name: "group sfsf 2" , href: "link", description: "the one g sfsfsadfroup"},
-        {name: "group f sdfsa 3" , href: "link", description: "the one dsfsdfas group"},
-        {name: "group sfd 4" , href: "link", description: "the one  dfasfgroup asfasdfas"},
-        {name: "group sfasfsfasfa 5" , href: "link", description: "the on sdfsae groupafasdfas fdasfasf"},
+        {name: "class 1" , href: "link", description: "Science, Math, SocialScience"},
+        {name: "class 2" , href: "link", description: "Science, Math, SocialScience"},
+        {name: "class 3" , href: "link", description: "Science, Math, SocialScience"},
+        {name: "class 4" , href: "link", description: "Science, Math, SocialScience"},
+        {name: "class 5" , href: "link", description: "Science, Math, SocialScience"},
     ]
 
     return(
@@ -20,21 +20,25 @@ export default function Page(){
                     <Image src='/Notes.svg'  width={200} height={200} className=' w-[20rem] lg:w-[35rem] relative left-16 mb-8'
                     alt='doubt solving page hero' />
 
-                    <p className="font-medium text-2xl relative left-16 md:px-8">
-                        my classes and it&#39;s team of faculty, <br/>
-                        is here to help you with your doubts and problems 
-                        anytime, throught it&#39;s communities <br></br><br></br>
-
-                        my classes and it&#39;s team of faculty, <br/>
-                        is here to help you with your doubts and problems 
-                        anytime, throught it&#39;s communities<br></br><br></br>
-
-                        
-
-
+                    <p className="font-medium text-xl md:text-2xl relative left-16 md:left-24 md:px-8 md:-top-16 ">
+                    At My Classes Tripura, we recognize that access to high-quality 
+                    study materials is crucial for academic success. <br/><br/>
+                    That&#39;s why we&#39;re proud to offer a diverse range of meticulously crafted notes,
+                    covering a wide array of subjects and topics, all completely free of charge.<br/><br/>
+                    <span className="hidden xl:block">Designed by experienced educators who understand the needs of students,
+                    each set of notes is comprehensive yet concise,
+                      providing clear explanations, illustrative examples, and practical tips to aid
+                       comprehension and retention.<br/><br/> Whether you&#39;re studying for exams, seeking clarification
+                        on complex concepts, or simply looking to enhance your understanding, our free notes are
+                         here to support you every step of the way.</span>
                     </p>
                 </div>
             </div>
+
+           
+            
+
+            
 
             <div className=" flex flex-col font-medium  text-2xl m-2 md:m-8 gap-2 mt-12">
                 {linkLists.map((item) => (
@@ -42,12 +46,21 @@ export default function Page(){
                         className="hover:text-blue-700 self-center bg-slate-50 p-2 rounded-md  w-10/12 md:w-8/12 justify-between">  
                         <div className="text-blue-700 mx-1">{item.name} | </div> 
                         <div className=" mx-1">{item.description} </div>
-                        
+
                     </Link>
-                    
-  
+
                 ))}
             </div>
+
+            <p className="font-medium text-xl m-16 md:text-2xl  md:px-8  ">
+                <span className="block xl:hidden">Designed by experienced educators who understand the needs of students,
+                each set of notes is comprehensive yet concise,
+                    providing clear explanations, illustrative examples, and practical tips to aid
+                    comprehension and retention.<br/><br/> Whether you&#39;re studying for exams, seeking clarification
+                    on complex concepts, or simply looking to enhance your understanding, our free notes are
+                        here to support you every step of the way.</span>
+
+            </p>
             
         </div>
     )
