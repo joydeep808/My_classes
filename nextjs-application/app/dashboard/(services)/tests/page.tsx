@@ -15,7 +15,7 @@ export default function Page(){
         <div className="flex flex-col  bg-gray-200 p-4">
 
             <div className="flex flex-col w-full lg:w-10/12 bg-white rounded-3xl md:rounded-2xl">
-                <span className="flex font-bold text-3xl sm:text-5xl md:ml-10 bg-gradient-to-b from-indigo-500 to-indigo-700 text-slate-50 p-4 rounded-bl-2xl">Tests <br/>Series</span>
+                <span className="flex font-bold text-5xl md:ml-10   p-4 rounded-bl-2xll">Tests <br/>Series</span>
 
             
                 <div className="flex flex-col md:flex-row py-8 items-center">

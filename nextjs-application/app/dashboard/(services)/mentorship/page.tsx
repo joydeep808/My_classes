@@ -14,7 +14,7 @@ export default function Page(){
     return(
         <div className="flex flex-col  bg-gray-200 p-4">
             <div className="flex flex-col w-full lg:w-10/12 bg-white rounded-3xl md:rounded-2xl">
-                <span className="flex font-bold text-3xl sm:text-5xl md:ml-10  text-slate-50 p-4 rounded-bl-2xl bg-gradient-to-b from-indigo-500 to-indigo-700">Mentorship <br/>Sessions</span>
+                <span className="flex font-bold text-5xl md:ml-10   p-4 rounded-bl-2xl">Mentorship <br/>Sessions</span>
             
                 <div className="flex flex-col md:flex-row py-8 items-center">
                     <Image src='/Mentorship.svg'  width={200} height={200} className='w-[15rem] md:w-[20rem] lg:w-[35rem] mb-8'

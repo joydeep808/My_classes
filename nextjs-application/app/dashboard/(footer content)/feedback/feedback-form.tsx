@@ -1,8 +1,10 @@
 "use client"
 
 export default function FeedbackForm() {
+
+    
     return (
-        <form action="" className="flex flex-col gap-2 w-full" onSubmit={(e) => { e.preventDefault() }}>
+        <form action='handle' className="flex flex-col gap-2 w-full" onSubmit={(e) => { e.preventDefault() }}>
             <label htmlFor="feedback-username" className="text-2xl font-semibold">Full name</label>
             <input type="text" id="feedback-username" name="feedback-username" placeholder="example name" className="rounded-xl border-slate-200 focus:shadow-xl transition-all" /><br />
 
