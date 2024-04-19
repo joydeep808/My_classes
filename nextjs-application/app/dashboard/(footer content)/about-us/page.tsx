@@ -37,7 +37,7 @@ export default function Page() {
                         </p>
                     </li>
                 </ul>
-                <div className="p-6 md:p-14 m-0 md:m-10 sm:m-4 my-10 text-sm sm:text-xl font-bold bg-gradient-to-t from-indigo-300 to-indigo-100 tracking-wide shadow-sm rounded-[50%_6%_100%_0%_/_25%_100%_0%_75%] rounded-b-xl text-left sm:text-justify">
+                <div className="p-6 md:p-14 m-0 md:m-10 sm:m-4 my-10 text-sm sm:text-xl font-semibold bg-gradient-to-t from-indigo-300 to-indigo-100 tracking-wide shadow-sm rounded-[50%_6%_100%_0%_/_25%_100%_0%_75%] rounded-b-xl text-left sm:text-justify">
                     <p>Ultimately, at &apos;My Classes Tripura&apos;, our commitment to student success, personalized learning experiences, and fostering a supportive community sets us apart as a leader in the field of online education. Join us as we shape a brighter future together.</p>
                 </div>
             </div>

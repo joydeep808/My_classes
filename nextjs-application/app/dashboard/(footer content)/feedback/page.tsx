@@ -1,5 +1,5 @@
 import Image from "next/image"
-import FeedbackForm from "../contact-us/feedback-form"
+import FeedbackForm from "./feedback-form"
 
 export default function Contact() {
   return (
