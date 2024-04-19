@@ -33,10 +33,10 @@ export default function ScrollToTop() {
   
     return (
         <button
-            className={`group/item fixed bottom-0 right-0 border bg-indigo-600 border-slate-400 rounded-full px-4 py-2 mr-6 mb-[71px] z-50 items-center flex gap-2 scrollToTopButton hover:shadow-xl backdrop-blur-xl hover:shadow-slate-400 hover:bg-slate-100 active:bg-slate-400 ${isVisible ? 'visible' : ''}`}
+            className={`group/item fixed bottom-0 right-0 border bg-indigo-600 border-slate-400 rounded-full px-3 py-2 mr-6 mb-[71px] z-50 items-center flex gap-2 scrollToTopButton hover:shadow-xl hover:shadow-slate-400 hover:bg-indigo-700 active:bg-indigo-500 ${isVisible ? 'visible' : ''}`}
             onClick={scrollToTop}
         >
-            <span className="group-hover/item:-translate-y-1 transition-transform ease-linear text-white font-extrabold text-xl group-hover/item:text-indigo-600">&#x2B9D;</span>
+            <span className="group-hover/item:-translate-y-[2px] transition-transform ease-linear text-white font-extrabold text-xl">&#x2B9D;</span>
         </button>
     )
 }

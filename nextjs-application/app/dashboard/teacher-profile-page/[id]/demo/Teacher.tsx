@@ -4,7 +4,7 @@ export default function TeacherDemo(video:{video:string}) {
     
     return (
         <div className="w-full">
-            <h1 className="text-2xl font-bold ">Check out <span className="text-violet-600">Example teacher</span>&aposs Demo class</h1>
+            <h1 className="text-2xl font-bold ">Check out <span className="text-violet-600">Example teacher</span>&aposs; Demo class</h1>
            {video.video ?  <iframe
                 src={video.video} 
                 title="YouTube video player"
