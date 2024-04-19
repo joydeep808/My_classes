@@ -21,7 +21,7 @@ export default function Page(){
                     alt='doubt solving page hero' />
 
 
-                    <p className="font-medium text-xl md:text-2xl relative left-16 md:left-24 md:px-8 md:-top-16 ">
+                    <p className="font-medium text-xl sm:text-2xl px-10 md:px-8 ">
                     My classes will also help you find mentors that can act as personal guides 
                     that help you every setep of your way.<br/>
                     Discover a community where ambitious learners

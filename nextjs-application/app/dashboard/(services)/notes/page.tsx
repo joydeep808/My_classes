@@ -17,10 +17,10 @@ export default function Page(){
                 <span className="flex font-bold text-3xl sm:text-5xl md:ml-10 bg-gradient-to-b from-indigo-500 to-indigo-700 text-slate-50 p-4 rounded-bl-2xl">Notes <br/>And <br/>Materials</span>
             
                 <div className="flex flex-col md:flex-row py-8 items-center">
-                    <Image src='/Notes.svg'  width={200} height={200} className='w-[15rem] md:w-[20rem] lg:w-[35rem] mb-8'
+                    <Image src='/Notes.svg'  width={200} height={200} className='w-[15rem] md:w-[20rem] lg:w-[25rem] mb-8'
                     alt='doubt solving page hero' />
 
-                    <p className="font-medium text-xl md:text-2xl relative left-16 md:left-24 md:px-8 md:-top-16 ">
+                    <p className="font-medium text-xl sm:text-2xl px-10 md:px-8">
                     At My Classes Tripura, we recognize that access to high-quality 
                     study materials is crucial for academic success. <br/><br/>
                     That&#39;s why we&#39;re proud to offer a diverse range of meticulously crafted notes,

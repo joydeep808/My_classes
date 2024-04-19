@@ -19,11 +19,11 @@ export default function Page(){
 
             
                 <div className="flex flex-col md:flex-row py-8 items-center">
-                    <Image src='/Doubt.svg'  width={200} height={200} className='w-[15rem] md:w-[20rem] lg:w-[35rem] mb-8'
+                    <Image src='/Doubt.svg'  width={200} height={200} className='w-[15rem] md:w-[20rem] lg:w-[25rem] mb-8'
                     alt='doubt solving page hero' />
 
 
-                    <p className="font-medium text-xl md:text-2xl relative left-16 md:left-24 md:px-8 md:-top-16 ">
+                    <p className="font-medium text-xl sm:text-2xl px-10 md:px-8 ">
                     At My Classes Tripura, we believe that no question should go unanswered.<br/><br/>
                     That&#39;s why we offer a dedicated doubt-solving service staffed by a team
                     of experienced teachers who are passionate about helping students succeed.<br/><br/>

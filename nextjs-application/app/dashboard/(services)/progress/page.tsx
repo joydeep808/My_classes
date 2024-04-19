@@ -1,13 +1,13 @@
 
-            
-            
-            
+
+
+
 import Performance from "../../(performance)/user_performance"
 import { PhoneCall } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function Page(){
+export default function Page() {
 
 
     const linkLists = [
@@ -23,7 +23,7 @@ export default function Page(){
 
             <div className="flex flex-col lg:flex-row gap-4 lg:flex-nowrap flex-wrap">
                 <div className="flex flex-col bg-white rounded-3xl md:rounded-2xl w-full lg:w-4/6 lg:rounded-r-none">
-                    <span className="flex font-bold text-3xl sm:text-5xl md:ml-10 bg-gradient-to-b from-indigo-500 to-indigo-700 text-slate-50 p-4 rounded-bl-2xl">User  <br /> And <br /> Performance</span>
+                    <span className="flex font-bold text-3xl sm:text-5xl md:ml-10 bg-gradient-to-b from-indigo-500 to-indigo-700 text-slate-50 p-4 rounded-bl-2xl">User and <br /> Performance</span>
 
                     <div className="flex flex-col md:flex-row py-8 items-center">
                         <Image src='/Progress.svg' width={200} height={200} className='w-[15rem] md:w-[20rem] lg:w-[20rem] mb-8'
@@ -31,16 +31,16 @@ export default function Page(){
 
                         <p className="font-medium text-xl sm:text-2xl px-10 md:px-8">
                             At My Classes Tripura, we believe in the power of data-driven insights to inform and empower students
-                    on their learning journey.<br/><br/>
-                    That&#39;s why we provide a robust progress tracking system that allows students to
-                    monitor their performance across multiple tests and assessments.<br/><br/>
-                          <span className="hidden xl:block">
-                        By analyzing test series marks over time, students can gain valuable insights into 
-                        their strengths and weaknesses, identify areas for improvement, and set realistic
-                        goals for academic growth.<br/><br/>
-                        Our intuitive tracking tools provide detailed analytics and personalized feedback,
-                        enabling students to make informed decisions about their studies and chart a 
-                        course towards success.<br/><br/></span>
+                            on their learning journey.<br /><br />
+                            That&#39;s why we provide a robust progress tracking system that allows students to
+                            monitor their performance across multiple tests and assessments.<br /><br />
+                            <span className="hidden xl:block">
+                                By analyzing test series marks over time, students can gain valuable insights into
+                                their strengths and weaknesses, identify areas for improvement, and set realistic
+                                goals for academic growth.<br /><br />
+                                Our intuitive tracking tools provide detailed analytics and personalized feedback,
+                                enabling students to make informed decisions about their studies and chart a
+                                course towards success.<br /><br /></span>
                         </p>
                     </div>
                 </div>
@@ -72,22 +72,17 @@ export default function Page(){
                 ))}
             </div>
 
-
-                
-
-            </div> 
-
             <p className="font-medium text-xl m-16 md:text-2xl  md:px-8  ">
                 <span className="block xl:hidden">
-                    By analyzing test series marks over time, students can gain valuable insights into 
+                    By analyzing test series marks over time, students can gain valuable insights into
                     their strengths and weaknesses, identify areas for improvement, and set realistic
-                    goals for academic growth.<br/><br/>
+                    goals for academic growth.<br /><br />
                     Our intuitive tracking tools provide detailed analytics and personalized feedback,
-                    enabling students to make informed decisions about their studies and chart a 
-                    course towards success.<br/><br/></span>
+                    enabling students to make informed decisions about their studies and chart a
+                    course towards success.<br /><br /></span>
 
             </p>
-            
+
 
         </div>
     )
