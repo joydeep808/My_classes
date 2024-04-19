@@ -1,0 +1,32 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491 448" width="491" height="448">
+	<title>Gradient icon-svg</title>
+	<defs>
+		<linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-278.44,110.13,-87.933,-222.319,248.38,233.13)">
+			<stop offset="0" stop-color="#453d98"/>
+			<stop offset=".24" stop-color="#3d489e"/>
+			<stop offset=".58" stop-color="#3654a5"/>
+			<stop offset=".63" stop-color="#3e51a3"/>
+			<stop offset=".72" stop-color="#54489f"/>
+			<stop offset=".84" stop-color="#793b99"/>
+			<stop offset=".96" stop-color="#ac2991"/>
+			<stop offset="1" stop-color="#bc248f"/>
+		</linearGradient>
+		<radialGradient id="g2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(56.15,0,0,56.15,54.07,79.08)">
+			<stop offset="0" stop-color="#1a52a4"/>
+			<stop offset=".03" stop-color="#1a50a1"/>
+			<stop offset=".63" stop-color="#262c6b"/>
+			<stop offset=".84" stop-color="#242666"/>
+			<stop offset="1" stop-color="#221e5e"/>
+		</radialGradient>
+	</defs>
+	<style>
+		.s0 { fill: url(#g1) } 
+		.s1 { fill: url(#g2) } 
+	</style>
+	<g id="Layer_1-2">
+		<g id="Gradient">
+			<path id="M" class="s0" d="m296.4 194.1c-12.3-12.3-32.2-12.3-44.4 0l-66.3 66.3-88.4-88.5h-86v276h86v-187.2l88.3 88.3 0.1-0.1 0.1 0.1 110.6-110.5c12.2-12.3 12.2-32.1 0-44.4z"/>
+			<path id="Head" class="s1" d="m54.3 133.4c-30 0-54.3-24.3-54.3-54.3 0-30 24.3-54.3 54.3-54.3 30 0 54.3 24.3 54.3 54.3 0 30-24.3 54.3-54.3 54.3z"/>
+		</g>
+	</g>
+</svg>
