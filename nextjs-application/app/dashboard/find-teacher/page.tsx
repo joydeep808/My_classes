@@ -78,7 +78,7 @@ export default function Page() {
                   className="  flex  items-center justify-evenly rounded-xl shadow-md self-center
              border-solid border-2 border-gray-200 bg-white w-10/12 h-60
 
-            transition-all ease-in delay-500 duration-200 hover:scale-150 hover:w-6/12  
+            transition-all ease-in delay-500 duration-200 lg:hover:scale-150 lg:hover:w-6/12  
                
              hover:shadow-2xl  p-2 md:py-6 m-1 md:mx-12
              hover:border-indigo-600  "
